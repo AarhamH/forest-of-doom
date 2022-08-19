@@ -14,12 +14,12 @@ TagManager:
   - Ground
   - Water
   - UI
+  - whatIsGround
+  - whatIsPlayer
   - 
   - 
   - 
   - 
-  - Player
-  - Player Collision Blocker
   - 
   - 
   - 
