@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject enemy;
     public NavMeshAgent agent;
 
     public Transform player;
@@ -12,13 +13,15 @@ public class EnemyController : MonoBehaviour
 
     public float health;
 
+    public int damage;
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
     //Attacking
-    public float timeBetweenAttacks;
+    public float timeBetweenAttacks = 0.833f;
     bool alreadyAttacked;
     public GameObject projectile;
 
@@ -26,10 +29,22 @@ public class EnemyController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    AnimationController animationController;
+    int walkAnimation;
+    int runAnimation;
+    int attackAnimation1;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
+        animationController = GetComponent<AnimationController>();
+        animationController.AnimationPlayerInstance();
+
+        walkAnimation = Animator.StringToHash("Walk");
+        runAnimation = Animator.StringToHash("Run");
+        attackAnimation1 = Animator.StringToHash("Attack");
     }
 
     private void Update()
@@ -40,11 +55,13 @@ public class EnemyController : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInAttackRange && playerInSightRange && !PlayerStats.isDead) AttackPlayer();
     }
 
     private void Patroling()
     {
+        animationController.animator.CrossFade(walkAnimation, 0f);   
+ 
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -70,7 +87,9 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
+        animationController.animator.CrossFade(runAnimation, 0f);   
         agent.SetDestination(player.position);
+
     }
 
     private void AttackPlayer()
@@ -83,9 +102,8 @@ public class EnemyController : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            animationController.animator.CrossFade(attackAnimation1, animationController.animationPlayTransition);
+            player.GetComponent<PlayerStats>().TakeDamage(damage);
             ///End of attack code
 
             alreadyAttacked = true;
@@ -95,17 +113,6 @@ public class EnemyController : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

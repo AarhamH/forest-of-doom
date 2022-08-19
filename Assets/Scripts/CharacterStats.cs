@@ -19,7 +19,7 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die(){
         isDead = true;
         Debug.Log(transform.name + "died");
-        Invoke(nameof(DestroyCharacter),2);
+        Invoke(nameof(DestroyCharacter),1.3f);
     }
 
     protected void DestroyCharacter(){
