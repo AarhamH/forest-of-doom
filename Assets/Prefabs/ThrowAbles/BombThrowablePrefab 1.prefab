@@ -133,7 +133,7 @@ MonoBehaviour:
   muzzleEffect: {fileID: 0}
   hitEffect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   isExplosive: 1
-  explosionRadius: 5
-  explosionForce: 5
-  explosionDamage: 4
+  explosionRadius: 3
+  explosionForce: 10
+  explosionDamage: 25
   explosionEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}

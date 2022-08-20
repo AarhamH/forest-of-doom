@@ -41,12 +41,28 @@ public class ProjectileAddon : MonoBehaviour
             hitTarget = true;
 
         // enemy hit
-        if (collision.gameObject.GetComponent<CharacterStats>() != null)
+        if (collision.gameObject.GetComponent<EnemyStats>() != null)
         {
-            CharacterStats enemy = collision.gameObject.GetComponent<CharacterStats>();
+            EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
 
             // deal damage to the enemy
             enemy.TakeDamage(damage);
+
+            // spawn hit effect (if assigned)
+            if (hitEffect != null)
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
+            
+            // destroy projectile
+            if (!isExplosive && destroyOnHit)
+                Invoke(nameof(DestroyProjectile), 0.1f);
+        }
+
+        if (collision.gameObject.GetComponent<PlayerStats>() != null)
+        {
+            PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
+
+            // deal damage to the enemy
+            player.TakeDamage(damage);
 
             // spawn hit effect (if assigned)
             if (hitEffect != null)

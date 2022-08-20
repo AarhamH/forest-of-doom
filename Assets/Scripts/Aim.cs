@@ -18,7 +18,7 @@ public class Aim : PlayerController
     {
         HeadAim();
 
-        if(CharacterStats.isDead){
+        if(PlayerStats.playerIsDead){
             DeadAim();
         }
     }

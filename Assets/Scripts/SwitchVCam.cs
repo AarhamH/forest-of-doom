@@ -29,7 +29,7 @@ public class SwitchVCam : MonoBehaviour
     }
 
     private void Update() {
-        if(CharacterStats.isDead){
+        if(PlayerStats.playerIsDead){
             DeathCamera();
         }
     }

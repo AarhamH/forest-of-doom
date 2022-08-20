@@ -46,7 +46,7 @@ public class Movement : PlayerController
         Jump();
         Look();
 
-        if(CharacterStats.isDead){
+        if(PlayerStats.playerIsDead){
             DisableInput();
         }
     }

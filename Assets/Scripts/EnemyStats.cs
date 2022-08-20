@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : CharacterStats
+public class EnemyStats : CharacterStats
 {
     [Header("Health")]
     [SerializeField]
-    private int maxHealth = 100; 
+    private int maxHealth = 50; 
       
     [Header("Particle Effects")]
     [SerializeField]
     private GameObject splatterEffect;
+
     [SerializeField]
-    private GameObject deathEffect;
+    private Rigidbody rb;
 
-    AnimationController animationController;
-    int dieAnimation;
+    static public bool enemyIsDead;
 
-    static public bool playerIsDead;
 
     private void Awake() {
         InitializeHealth(maxHealth);
-
-        animationController = GetComponent<AnimationController>();
-        animationController.AnimationPlayerInstance();
-        dieAnimation = Animator.StringToHash("Die");
+        rb = GetComponent<Rigidbody>();
     }
 
     public override void TakeDamage(int damage)
@@ -40,16 +36,8 @@ public class PlayerStats : CharacterStats
 
     public override void Die()
     {
-        playerIsDead = true;
+        enemyIsDead = true;
         base.Die();
-        animationController.animator.CrossFade(dieAnimation, animationController.animationPlayTransition);
 
-        if(deathEffect != null){
-            PlayParticleEffects(deathEffect);
-        }
     }
-
-    
-
-
 }
