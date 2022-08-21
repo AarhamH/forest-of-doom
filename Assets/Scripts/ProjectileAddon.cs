@@ -6,7 +6,6 @@ public class ProjectileAddon : MonoBehaviour
 {
     [Header("Stats")]
     public int damage;
-    public int damageToSelf = 0;
     public bool destroyOnHit;
 
     [Header("Effects")]
@@ -58,6 +57,21 @@ public class ProjectileAddon : MonoBehaviour
                 Invoke(nameof(DestroyProjectile), 0.1f);
         }
 
+        if (collision.gameObject.GetComponent<PlayerStats>() != null)
+        {
+            PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
+
+            // deal damage to the enemy
+            player.TakeDamage(damage);
+
+            // spawn hit effect (if assigned)
+            if (hitEffect != null)
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
+            
+            // destroy projectile
+            if (!isExplosive && destroyOnHit)
+                Invoke(nameof(DestroyProjectile), 0.1f);
+        }
 
         // explode projectile if it's explosive
         if (isExplosive)

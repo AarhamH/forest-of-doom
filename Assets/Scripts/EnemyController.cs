@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks = 0.833f;
     bool alreadyAttacked;
+    public GameObject projectile;
 
     //States
     public float sightRange, attackRange;
@@ -54,7 +55,7 @@ public class EnemyController : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange && !PlayerStats.playerIsDead) AttackPlayer();
+        if (playerInAttackRange && playerInSightRange && !PlayerStats.isDead) AttackPlayer();
     }
 
     private void Patroling()
@@ -86,9 +87,7 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if(PlayerStats.playerIsDead){
-            Patroling();
-        }
+
         animationController.animator.CrossFade(runAnimation, 0f);   
         agent.SetDestination(player.position);
 
@@ -128,7 +127,4 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-
-
 }
-

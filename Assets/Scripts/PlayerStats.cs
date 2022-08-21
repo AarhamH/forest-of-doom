@@ -25,7 +25,6 @@ public class PlayerStats : CharacterStats
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();
         dieAnimation = Animator.StringToHash("Die");
-
     }
 
     public override void TakeDamage(int damage)
@@ -48,7 +47,6 @@ public class PlayerStats : CharacterStats
         if(deathEffect != null){
             PlayParticleEffects(deathEffect);
         }
-
     }
 
     
