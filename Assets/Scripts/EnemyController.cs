@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -86,11 +86,11 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        animationController.animator.CrossFade(runAnimation, 0f);   
-        agent.SetDestination(player.position);
         if(PlayerStats.playerIsDead){
             Patroling();
         }
+        animationController.animator.CrossFade(runAnimation, 0f);   
+        agent.SetDestination(player.position);
 
     }
 
@@ -106,11 +106,14 @@ public class EnemyController : MonoBehaviour
             ///Attack code here
             animationController.animator.CrossFade(attackAnimation1, animationController.animationPlayTransition);
             player.GetComponent<PlayerStats>().TakeDamage(damage);
-            Debug.Log("Attack");
             ///End of attack code
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+        
+        if(PlayerStats.playerIsDead){
+            Patroling();
         }
     }
     private void ResetAttack()
