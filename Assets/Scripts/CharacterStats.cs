@@ -17,7 +17,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     public virtual void Die(){
-        Invoke(nameof(DestroyCharacter),1.3f);
+        Invoke(nameof(DestroyCharacter),2f);
     }
 
     protected void DestroyCharacter(){
