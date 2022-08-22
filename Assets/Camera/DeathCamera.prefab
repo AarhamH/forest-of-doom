@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 3551440678668143359}
   - component: {fileID: 3551440678668143353}
   - component: {fileID: 425353698813984663}
+  - component: {fileID: 1674698155550953370}
   m_Layer: 0
   m_Name: DeathCamera
   m_TagString: Untagged
@@ -288,3 +289,19 @@ MonoBehaviour:
   AutoEnableInputs: 1
   XYAxis: {fileID: 2704806816151751714, guid: b915d50861773cb46a72d53e8aaa7080, type: 3}
   ZAxis: {fileID: 0}
+--- !u!114 &1674698155550953370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551440678668143356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6086543d7701e48927cc3444a152cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thirdPersonCamera: {fileID: 0}
+  aimCamera: {fileID: 0}
+  zoomOutCanvas: {fileID: 0}
+  zoomInCanvas: {fileID: 0}

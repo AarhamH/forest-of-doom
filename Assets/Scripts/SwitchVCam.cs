@@ -28,12 +28,6 @@ public class SwitchVCam : MonoBehaviour
         zoomInCanvas.enabled = false;
     }
 
-    private void Update() {
-        if(PlayerStats.playerIsDead){
-            DeathCamera();
-        }
-    }
-
     private void OnEnable(){
         aimAction.performed += _=> StartAim();
         aimAction.canceled +=_=> CancelAim();
@@ -55,14 +49,6 @@ public class SwitchVCam : MonoBehaviour
         virtualCamera.Priority -= priorityBoostAmount;
         zoomInCanvas.enabled = false;
         zoomOutCanvas.enabled = true;
-        aimCalled = false;
-    }
-
-    private void DeathCamera(){
-        thirdPersonCamera.enabled = false;
-        aimCamera.enabled = false;
-        zoomInCanvas.enabled = false;
-        zoomOutCanvas.enabled = false;
         aimCalled = false;
     }
 

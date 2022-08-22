@@ -11,16 +11,14 @@ public class EnemyStats : CharacterStats
     [Header("Particle Effects")]
     [SerializeField]
     private GameObject splatterEffect;
-
     [SerializeField]
-    private Rigidbody rb;
+    private GameObject deathEffect;
 
     static public bool enemyIsDead;
 
 
     private void Awake() {
         InitializeHealth(maxHealth);
-        rb = GetComponent<Rigidbody>();
     }
 
     public override void TakeDamage(int damage)
@@ -38,6 +36,7 @@ public class EnemyStats : CharacterStats
     {
         enemyIsDead = true;
         base.Die();
+        PlayParticleEffects(deathEffect);
 
     }
 }

@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
 
         animationController = GetComponent<AnimationController>();
@@ -87,10 +87,12 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-
+        if(PlayerStats.playerIsDead){
+            playerInAttackRange = false;
+            playerInSightRange = false;
+        }
         animationController.animator.CrossFade(runAnimation, 0f);   
         agent.SetDestination(player.position);
-
     }
 
     private void AttackPlayer()
@@ -100,7 +102,7 @@ public class EnemyController : MonoBehaviour
 
         transform.LookAt(player);
 
-        if (!alreadyAttacked)
+        if (!alreadyAttacked && !PlayerStats.playerIsDead)
         {
             ///Attack code here
             animationController.animator.CrossFade(attackAnimation1, animationController.animationPlayTransition);
@@ -110,10 +112,7 @@ public class EnemyController : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        
-        if(PlayerStats.playerIsDead){
-            Patroling();
-        }
+
     }
     private void ResetAttack()
     {

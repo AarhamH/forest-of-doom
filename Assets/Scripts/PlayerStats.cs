@@ -17,6 +17,7 @@ public class PlayerStats : CharacterStats
     AnimationController animationController;
     int dieAnimation;
 
+
     static public bool playerIsDead;
 
     private void Awake() {
@@ -25,6 +26,7 @@ public class PlayerStats : CharacterStats
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();
         dieAnimation = Animator.StringToHash("Die");
+
     }
 
     public override void TakeDamage(int damage)

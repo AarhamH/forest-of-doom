@@ -33,6 +33,7 @@ public class Throwing : PlayerController
     //     :=> Initializes all required components used before run time
     private void Awake() 
     {
+        cam = GameObject.Find("Main Camera").transform;
         // Initializes PlayerControllerInstance; method inherited 
         // from PlayerController.cs
         //      --> gets Unity Input System components for Move, Jump, Shoot
