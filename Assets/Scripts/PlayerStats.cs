@@ -28,7 +28,6 @@ public class PlayerStats : CharacterStats
         dieAnimation = Animator.StringToHash("Die");
 
     }
-
     public override void TakeDamage(int damage)
     {
         if(splatterEffect != null){

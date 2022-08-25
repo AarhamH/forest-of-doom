@@ -27,5 +27,5 @@ public class CharacterStats : MonoBehaviour
     protected void PlayParticleEffects(GameObject effect){
         Instantiate(effect, transform.position,Quaternion.identity);
     }
-     
+
 }
