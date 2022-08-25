@@ -12,6 +12,7 @@ public class Throwing : PlayerController
     private GameObject throwableObject;
     [SerializeField]
     private GameObject bombInHand;
+    
 
     [Header("Throw Settings")]
     [SerializeField]
@@ -27,7 +28,6 @@ public class Throwing : PlayerController
     int throwAnimation;
     bool readyToThrow;
     AnimationController animationController;
-
 
     // Awake() [executes before Start() and Update()]
     //     :=> Initializes all required components used before run time
