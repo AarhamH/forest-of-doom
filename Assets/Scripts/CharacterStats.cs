@@ -21,7 +21,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     protected void DestroyCharacter(){
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     protected void PlayParticleEffects(GameObject effect){

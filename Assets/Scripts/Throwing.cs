@@ -13,7 +13,6 @@ public class Throwing : PlayerController
     [SerializeField]
     private GameObject bombInHand;
     
-
     [Header("Throw Settings")]
     [SerializeField]
     private int totalThrows = 50;
@@ -166,4 +165,5 @@ public class Throwing : PlayerController
 
     private void GetRidOfBomb()  {bombInHand.SetActive(false);}
     private void GetBackBomb()  {bombInHand.SetActive(true);}
+
 }

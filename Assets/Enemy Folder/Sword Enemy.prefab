@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 5974646168747499224}
   - component: {fileID: 7081807765968920981}
   - component: {fileID: 7081807765968921002}
+  - component: {fileID: 5491929034376934762}
   m_Layer: 0
   m_Name: Sword Enemy
   m_TagString: Untagged
@@ -897,8 +898,15 @@ MonoBehaviour:
   rb: {fileID: 5974646168747499222}
   capsuleCollider: {fileID: 5974646168747499218}
   enemyController: {fileID: 5974646168747499225}
-  ChildrenCollider: []
-  ChildrenRigidBody: []
+  enemyStats: {fileID: 0}
+  ChildrenCollider:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ChildrenRigidBody:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &7081807765968921002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +922,20 @@ MonoBehaviour:
   maxHealth: 50
   splatterEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   deathEffect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  enemyIsDead: 0
+--- !u!135 &5491929034376934762
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458695839746851946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6791429132624813084
 GameObject:
   m_ObjectHideFlags: 0

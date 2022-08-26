@@ -14,7 +14,7 @@ public class EnemyStats : CharacterStats
     [SerializeField]
     private GameObject deathEffect;
 
-    static public bool enemyIsDead;
+    public bool enemyIsDead;
 
 
     private void Awake() {

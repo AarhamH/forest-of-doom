@@ -27,9 +27,9 @@ public class PlayerController : MonoBehaviour
     }
 
     protected void DisableInput(){
-        moveAction.Disable();
-        jumpAction.Disable();
-        shootAction.Disable();
+        this.moveAction.Disable();
+        this.jumpAction.Disable();
+        this.shootAction.Disable();
     }
 
 }

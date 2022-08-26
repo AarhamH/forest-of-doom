@@ -9,6 +9,8 @@ public class EnemyRagdoll : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     public EnemyController enemyController;
 
+    public EnemyStats enemyStats;
+
     public Collider[] ChildrenCollider;
     public Rigidbody[] ChildrenRigidBody;
 
@@ -18,6 +20,7 @@ public class EnemyRagdoll : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         enemyController = GetComponent<EnemyController>();
+        enemyStats = GetComponent<EnemyStats>();
     
         ChildrenCollider = GetComponentsInChildren<Collider>();
         ChildrenRigidBody = GetComponentsInChildren<Rigidbody>();
@@ -30,7 +33,7 @@ public class EnemyRagdoll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnemyStats.enemyIsDead){
+        if(enemyStats.enemyIsDead){
             RagDollActive(true);
         }
     }

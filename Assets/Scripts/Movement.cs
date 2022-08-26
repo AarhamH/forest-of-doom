@@ -26,11 +26,15 @@ public class Movement : PlayerController
 
     AnimationController animationController;
 
+    private PlayerStats playerStats;
+
 
     // Awake() [executes before Start() and Update()]
     //     :=> Initializes all required components used before run time
     private void Awake(){
         PlayerControllerInstance();
+
+        playerStats = GetComponent<PlayerStats>();
 
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();

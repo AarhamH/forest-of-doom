@@ -1,6 +1,6 @@
-
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    public Collider[] potentialPlayers;
     public float health;
 
     public int damage;
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    PlayerStats playerStats;
+
     AnimationController animationController;
     int walkAnimation;
     int runAnimation;
@@ -36,8 +39,9 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerStats = GetComponent<PlayerStats>();
         agent = GetComponent<NavMeshAgent>();
+        player = GetComponent<Transform>();
 
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();
@@ -49,14 +53,21 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        potentialPlayers = Physics.OverlapSphere(transform.position,20f);
+        foreach(var collider in potentialPlayers){
+            if(collider.tag == "Player"){
+                player = collider.gameObject.transform;
+            }
+        }
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange && !PlayerStats.isDead) AttackPlayer();
+        if (playerInSightRange && !playerInAttackRange)  ChasePlayer(); 
+        if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
+
 
     private void Patroling()
     {
@@ -87,12 +98,13 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if(PlayerStats.playerIsDead){
-            playerInAttackRange = false;
-            playerInSightRange = false;
+        if(PlayerStats.playerIsDead || player.position == null){
+            Patroling();
         }
-        animationController.animator.CrossFade(runAnimation, 0f);   
+
+        animationController.animator.CrossFade(runAnimation, 0f);
         agent.SetDestination(player.position);
+          
     }
 
     private void AttackPlayer()
