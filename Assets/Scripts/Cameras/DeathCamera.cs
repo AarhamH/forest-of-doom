@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+// this camera zooms out when the character dies
+// camera also does not allow mouse input
+// all are cosmetic features lmao
 public class DeathCamera : MonoBehaviour
 {
     [SerializeField]

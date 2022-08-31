@@ -24,16 +24,16 @@ public class Movement : PlayerController
     int moveZAnimationParamID;
     int jumpAnimation;
 
-    AnimationController animationController;
-
+    [Header("Player Stats Instance")]
     private PlayerStats playerStats;
 
+    [Header("Animation Controller Instance")]
+    AnimationController animationController;
 
-    // Awake() [executes before Start() and Update()]
-    //     :=> Initializes all required components used before run time
+
     private void Awake(){
+        // intialize player controller, player stats and animation controls
         PlayerControllerInstance();
-
         playerStats = GetComponent<PlayerStats>();
 
         animationController = GetComponent<AnimationController>();
@@ -63,6 +63,8 @@ public class Movement : PlayerController
             playerVelocity.y = -3.6f;
         }
 
+        // reads the player input and transforms the object respectively around x and z axis
+        // animation blend vectors play animation given any combination of WASD pressed and idle
         Vector2 input = moveAction.ReadValue<Vector2>();
         currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, input, ref animationVelocity, animationController.animationSmoothTime);
         Vector3 move = new Vector3(currentAnimationBlendVector.x, 0, currentAnimationBlendVector.y);

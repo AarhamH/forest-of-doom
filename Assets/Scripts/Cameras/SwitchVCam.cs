@@ -29,11 +29,13 @@ public class SwitchVCam : MonoBehaviour
     }
 
     private void OnEnable(){
+        // aim camera active, third person inactive
         aimAction.performed += _=> StartAim();
         aimAction.canceled +=_=> CancelAim();
     }
 
     private void OnDisabled(){
+        // aim camera inactive, third person active
         aimAction.performed -= _=> StartAim();
         aimAction.canceled -=_=> CancelAim();
     }

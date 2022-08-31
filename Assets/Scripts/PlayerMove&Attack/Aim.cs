@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this class makes the head rig move with respect to a point
 public class Aim : PlayerController
 {
     [SerializeField]
@@ -13,7 +14,6 @@ public class Aim : PlayerController
         PlayerControllerInstance();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         HeadAim();
@@ -28,6 +28,8 @@ public class Aim : PlayerController
     }
 
     private void DeadAim(){
+        // makes the head orient in random directions after death
+        // death looks more natural (cosmetic feature)
         aimTarget.position = transform.position + Vector3.back * aimDistance;
 
     }

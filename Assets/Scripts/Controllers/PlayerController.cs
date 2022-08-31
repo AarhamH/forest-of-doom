@@ -2,10 +2,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
+
+// parent class instead of general class due to the input system inheritance
 public class PlayerController : MonoBehaviour
 {
+    [Header("Controller")]
     protected CharacterController controller;
+
+    [Header("Camera Reference")]
     protected Transform cameraTransform;
+
+    [Header("Player Inputs")]
     protected PlayerInput playerInput;
     protected InputAction moveAction;
     protected InputAction jumpAction;

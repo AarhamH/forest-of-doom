@@ -1,37 +1,51 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject enemy;
-    public NavMeshAgent agent;
+    [Header("Enemy/Player Initializations")]
+    [SerializeField]
+    private GameObject enemy;
+    [SerializeField]
+    private Transform player;
+    private Collider[] potentialPlayers;
 
-    public Transform player;
+    [Header("Navmesh Agent")]
+    [SerializeField]
+    private NavMeshAgent agent;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    [Header("LayerMasks")]
+    [SerializeField]
+    private LayerMask whatIsGround;
+    [SerializeField]
+    private LayerMask whatIsPlayer;
 
-    public Collider[] potentialPlayers;
-    public float health;
+    [Header("Enemy Damage Stats")]
+    [SerializeField]
+    private int damage = 20;
 
-    public int damage;
+    [Header("Patrolling")]
+    [SerializeField]
+    private float walkPointRange = 5f;
+    private Vector3 walkPoint;
+    private bool walkPointSet;
 
-    //Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
+    [Header("Attacking")]
+    [SerializeField]
+    private float timeBetweenAttacks = 0.833f;
+    private bool alreadyAttacked;
 
-    //Attacking
-    public float timeBetweenAttacks = 0.833f;
-    bool alreadyAttacked;
-    public GameObject projectile;
+    [Header("Enemy States")]
+    [SerializeField]
+    private float sightRange = 20f;
+    [SerializeField]
+    private float attackRange = 1.37f;
+    private bool playerInSightRange, playerInAttackRange;
 
-    //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
+    [Header("Player Stats Reference")]
     PlayerStats playerStats;
 
+    [Header("Animation References")]
     AnimationController animationController;
     int walkAnimation;
     int runAnimation;
@@ -39,9 +53,11 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        playerStats = GetComponent<PlayerStats>();
+        // intialize Navmesh agent, player, player stats, and animation controls
         agent = GetComponent<NavMeshAgent>();
         player = GetComponent<Transform>();
+
+        playerStats = GetComponent<PlayerStats>();
 
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();
@@ -53,16 +69,21 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        // create an overlap sphere to create dynamic player targets
+        // if a character enters the sphere, the enemy will set that character as the target
+        // break after condition met to avoid enemy from switching targets prematurely
         potentialPlayers = Physics.OverlapSphere(transform.position,20f);
         foreach(var collider in potentialPlayers){
             if(collider.tag == "Player"){
                 player = collider.gameObject.transform;
+                break;
             }
         }
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+        //handle enemy states given conditions
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange)  ChasePlayer(); 
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
@@ -80,13 +101,13 @@ public class EnemyController : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
+        // walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
+        // calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -98,18 +119,22 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
+        // abovious logic, only here to avoid animation glitches after character dies
         if(PlayerStats.playerIsDead || player.position == null){
             Patroling();
         }
 
+        // enemy follows player here
         animationController.animator.CrossFade(runAnimation, 0f);
         agent.SetDestination(player.position);
           
     }
 
+    // attack code can be a different class, that way I can have unique attacks for enemies
+    // leave for now cuz whatever
     private void AttackPlayer()
     {
-        //Make sure enemy doesn't move
+        // make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -126,6 +151,7 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
