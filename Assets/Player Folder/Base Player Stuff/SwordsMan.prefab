@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: -4804028138584326278}
   m_Layer: 7
   m_Name: SwordsMan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1254,3 +1254,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41024294, y: 1.29, z: 0.19144404}
   m_Center: {x: 0.03, y: 0.92, z: 0.27}
+--- !u!114 &3228218083968047086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057094633409190756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bab1d812a93f049af4d1b5ef5cfb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

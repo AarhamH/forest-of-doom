@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy States")]
     [SerializeField]
-    private float sightRange = 20f;
+    private float sightRange = 15f;
     [SerializeField]
     private float attackRange = 1.37f;
     private bool playerInSightRange, playerInAttackRange;
