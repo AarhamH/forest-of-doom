@@ -2805,6 +2805,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 1.5}
   m_Center: {x: -0.00000059604645, y: 2, z: -0.0000009536743}
+--- !u!1 &245727174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5156825753330128388, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+  m_PrefabInstance: {fileID: 1831538288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &245727181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245727174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bab1d812a93f049af4d1b5ef5cfb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  hitEffect: {fileID: 0}
+  targets: []
 --- !u!4 &246452772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c2df9fc63333c946a50e579e82e27be, type: 3}
@@ -3614,6 +3634,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 1.5}
   m_Center: {x: -0.00000011920929, y: 2, z: 0}
+--- !u!4 &327846650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5480522859096050738, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+  m_PrefabInstance: {fileID: 1831538288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332882515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fb6675156c9b2c9499fbbe7db3fe1b32, type: 3}
@@ -5841,6 +5866,10 @@ PrefabInstance:
     - target: {fileID: 6458695839746851946, guid: 0b1c5d805d3bc554da26a3f7a984e673, type: 3}
       propertyPath: m_Name
       value: Sword Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458695839746851946, guid: 0b1c5d805d3bc554da26a3f7a984e673, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1c5d805d3bc554da26a3f7a984e673, type: 3}
@@ -21257,6 +21286,26 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8390097910753440282, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 327846650}
+    - target: {fileID: 8390097910753440282, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+      propertyPath: knockBackForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390097910753440282, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+      propertyPath: sphereCollider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390097910753440282, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+      propertyPath: capsuleCollider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390097910753440282, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
+      propertyPath: attackPointRange
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9042971051910011262, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3459802
@@ -21273,7 +21322,8 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7769412
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1221686938025309644, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e44ea0e1c4fb4d84a94f01c2fb5af05e, type: 3}
 --- !u!1001 &1833732292
 PrefabInstance:
