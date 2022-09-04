@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Test",
+                    "name": "ChangePlayerRight",
                     "type": "Button",
                     "id": "9da4cdfa-bbce-4725-8363-56fb5ee0a167",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangePlayerLeft",
+                    "type": "Button",
+                    "id": "ad3fe4e2-058a-4269-9fc5-35bde736816b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -163,11 +172,22 @@
                 {
                     "name": "",
                     "id": "1534afd7-0fc6-4358-876c-5e47aec40ee7",
-                    "path": "<Keyboard>/t",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Test",
+                    "action": "ChangePlayerRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c08ada2e-212f-4a8f-85ae-9dc5c4f5a265",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangePlayerLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

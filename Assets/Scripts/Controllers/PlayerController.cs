@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     protected InputAction moveAction;
     protected InputAction jumpAction;
     protected InputAction shootAction;
+    protected InputAction changePlayerRight;
+    protected InputAction changePlayerLeft;
 
     protected void PlayerControllerInstance()
     {
@@ -27,6 +29,9 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         shootAction = playerInput.actions["Shoot"];
+        changePlayerRight = playerInput.actions["ChangePlayerRight"];
+        changePlayerLeft = playerInput.actions["ChangePlayerLeft"];
+
 
         Cursor.lockState = CursorLockMode.Locked;
 
