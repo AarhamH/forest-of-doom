@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         controller.detectCollisions = false;
     }
 
-    protected void DisableInput(){
+    public void DisableInput(){
         this.moveAction.Disable();
         this.jumpAction.Disable();
         this.shootAction.Disable();

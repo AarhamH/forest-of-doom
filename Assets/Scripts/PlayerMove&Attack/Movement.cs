@@ -9,12 +9,12 @@ public class Movement : PlayerController
     [SerializeField]
     private float jumpHeight = 2.0f;
     [SerializeField]
-    private float gravityValue = -9.81f;
+    protected float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 5.0f;
 
     [Header("Movement Misc. Settings")]
-    private Vector3 playerVelocity;
+    protected Vector3 playerVelocity;
     private bool groundedPlayer;
 
     [Header("Movement Animation Settings")]
@@ -98,5 +98,7 @@ public class Movement : PlayerController
         Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+
 
 }
