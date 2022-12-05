@@ -14,4 +14,13 @@ public class AnimationController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
+    public void ExecuteAnimation(string animation) {
+        animator.CrossFade(Animator.StringToHash(animation),animationPlayTransition);
+    }
+
+    public void WalkAnimation(string animationX, string animationY, float blendVectorX, float blendVectorY) {
+        animator.SetFloat(Animator.StringToHash(animationX), blendVectorX);
+        animator.SetFloat(Animator.StringToHash(animationY), blendVectorY);
+    }
 }

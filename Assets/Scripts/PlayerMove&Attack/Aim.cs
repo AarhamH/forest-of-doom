@@ -2,38 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// this class makes the head rig move with respect to a point
-public class Aim : PlayerController
+
+public class Aim : MonoBehaviour
 {
     [SerializeField]
     private Transform aimTarget;
     [SerializeField]
     private float aimDistance = 10f;
 
+    PlayerController playerController;
+
     private void Start() {
-        PlayerControllerInstance();
+        playerController = GetComponent<PlayerController>();
+        playerController.PlayerControllerInstance();
     }
 
-    private void Update()
-    {
+    private void Update() {
         HeadAim();
-
-        if(PlayerStats.playerIsDead){
-            DeadAim();
-        }
     }
 
-    private void HeadAim(){
-        aimTarget.position = cameraTransform.position + cameraTransform.forward * aimDistance;
+    // controls the head movement relative to a line that goes through the cursor
+    private void HeadAim() {
+        aimTarget.position = playerController.cameraTransform.position + playerController.cameraTransform.forward * aimDistance;
     }
-
-    private void DeadAim(){
-        // makes the head orient in random directions after death
-        // death looks more natural (cosmetic feature)
-        aimTarget.position = transform.position + Vector3.back * aimDistance;
-
-    }
-
-    
 
 }

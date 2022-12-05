@@ -7,20 +7,20 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Controller")]
-    protected CharacterController controller;
+    public CharacterController controller;
 
     [Header("Camera Reference")]
-    protected Transform cameraTransform;
+    public Transform cameraTransform;
 
     [Header("Player Inputs")]
-    protected PlayerInput playerInput;
-    protected InputAction moveAction;
-    protected InputAction jumpAction;
-    protected InputAction shootAction;
-    protected InputAction changePlayerRight;
-    protected InputAction changePlayerLeft;
+    public PlayerInput playerInput;
+    public InputAction moveAction;
+    public InputAction jumpAction;
+    public InputAction shootAction;
+    public InputAction changePlayerRight;
+    public InputAction changePlayerLeft;
 
-    protected void PlayerControllerInstance()
+    public void PlayerControllerInstance()
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();

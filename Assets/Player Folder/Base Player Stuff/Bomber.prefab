@@ -84,10 +84,10 @@ GameObject:
   - component: {fileID: 9156510557280627821}
   - component: {fileID: 9156510557280627822}
   - component: {fileID: 9156510557280627823}
-  - component: {fileID: 9156510557280627816}
+  - component: {fileID: -2682460880968168819}
   m_Layer: 7
   m_Name: Bomber
-  m_TagString: Player
+  m_TagString: Thrower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +189,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711b8fded697ef44ca9e216360556fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c78e161b-e181-4077-8adf-dcb002877641
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 779cda52-6422-4536-ba3f-fa9b7aefe3fa
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e2e30954-6a2e-4c33-9f2e-05f3f2c51178
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerRight:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e7aeb810-d027-4bc7-a839-dc18c1844a78
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerLeft:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0e1a3dc3-ae2b-4200-b7db-55d98e564287
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &9156510557280627809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +249,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8e7fc377cf6164d8e37253ca9c9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ac4c243d-6aba-4c99-8171-f8cd922c2091
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cd122296-6db1-49a7-9548-e0421138b380
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d78fe3e9-4fe1-46b0-8a89-41d4c8324de9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerRight:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2ce714be-f33e-4d86-9a8f-43dd617b9577
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerLeft:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 50387984-737b-4129-b88a-b6abdc6bb1d2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   playerSpeed: 4
   jumpHeight: 2
   gravityValue: -9.81
@@ -217,6 +313,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2601b83a6f8c4e442aad882412cb99a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 07565b86-c1ac-44db-b2a8-580ceb574e8d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b6ab6064-adf2-4a14-9f48-d94922767177
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0d5309ac-4c95-495e-830b-f64ce9ed637d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerRight:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7cb34913-1944-42a4-885a-75d340642a78
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerLeft:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 854b1c61-219d-432c-bc76-5b487b6667a8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   cam: {fileID: 0}
   pointOfAttack: {fileID: 2601709640923811013}
   throwableObject: {fileID: 6969395698222150026, guid: 077f89dd95c5a9a4caa8891c205ac38f, type: 3}
@@ -321,7 +465,7 @@ MonoBehaviour:
   maxHealth: 100
   splatterEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   deathEffect: {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
---- !u!114 &9156510557280627816
+--- !u!114 &-2682460880968168819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,6 +477,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47faeb0e350c74c4e9928edf8d8ddcca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a0cd2d38-e5f5-462f-90ce-bf75dcf018e6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e6cbd6c0-d497-4024-9afa-256705e1a639
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1d472c81-6715-4f78-b8f2-a20255c2370f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerRight:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9aa71d8c-17e0-4a9b-a73f-2e09fc33d55f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerLeft:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d8ba21e7-d8a0-45a1-ae95-396e4ae4d465
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   playerSpeed: 4
   jumpHeight: 2
   gravityValue: -9.81

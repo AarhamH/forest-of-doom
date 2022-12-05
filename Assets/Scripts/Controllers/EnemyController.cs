@@ -74,7 +74,8 @@ public class EnemyController : MonoBehaviour
         // break after condition met to avoid enemy from switching targets prematurely
         potentialPlayers = Physics.OverlapSphere(transform.position,20f);
         foreach(var collider in potentialPlayers){
-            if(collider.tag == "Player"){
+            int playerMask = LayerMask.NameToLayer("whatIsPlayer");
+            if(collider.gameObject.layer == playerMask){
                 player = collider.gameObject.transform;
                 break;
             }

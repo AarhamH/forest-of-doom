@@ -6797,6 +6797,98 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1107686038}
     m_Modifications:
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: cee5b8c0-b3a3-4fb9-b745-0695d35dd751
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: moveAction.m_Id
+      value: f203de12-3c12-4a19-a825-337509c3757a
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: shootAction.m_Id
+      value: 4b33a360-7f72-466b-9ef7-ea9b38b2f154
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: jumpAction.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: shootAction.m_Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: 3b4b251e-e774-4986-981f-b29c3bbb0cdf
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: c95dd63c-1b4d-401a-9493-2b12384d704f
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerLeft.m_Name
+      value: Change Player Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157968, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerRight.m_Name
+      value: Change Player Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: 0f08f386-3af2-4842-9cbd-dddc832a7654
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: moveAction.m_Id
+      value: b27a934e-d07b-4ed5-82f2-fd82efec2b3c
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: shootAction.m_Id
+      value: 244656e7-5c41-4359-b77f-338fe7e9dc93
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: jumpAction.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: afeaad4c-3eba-4d30-a3fc-4b14c345d86e
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157977, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: 40c1ef62-0669-493c-b3c5-b3f0e297d8fb
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: 6315b5a3-4226-409e-9cb0-fc62ac81e839
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: moveAction.m_Id
+      value: eaca3978-0a33-4951-bc9a-5886b950b518
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: shootAction.m_Id
+      value: 1057736e-8491-44f6-b14c-18f2b4ac71c0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: 0b42062e-5faa-4daa-8eba-da199f5d4e84
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: 312329a6-4fb9-430e-a391-49fde99c933d
+      objectReference: {fileID: 0}
+    - target: {fileID: 436908075784157982, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
+      propertyPath: changePlayerLeft.m_Name
+      value: Change Player Left
+      objectReference: {fileID: 0}
     - target: {fileID: 436908075784158061, guid: 7a06e78e657a8764faf0877a82b71605, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -12595,6 +12687,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d201c7246ae193046b13cf1a8d131687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  cameraTransform: {fileID: 0}
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerRight:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changePlayerLeft:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   character: {fileID: 0}
   characterList:
   - {fileID: 1906493656}
@@ -23232,6 +23372,126 @@ PrefabInstance:
     - target: {fileID: 9156510557280627795, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: 3386b2ab-54a4-41d5-8815-04ad8da22f44
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Id
+      value: d0ef6c8f-9eff-41cd-b90a-78222cae7c51
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Id
+      value: 418529d3-4c43-4fa1-87fe-3b558fcb0248
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: 8059563e-7761-483b-a4bb-bdccd09b60a7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: f69dd42f-9911-49ad-b214-de2b14dd2c53
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Name
+      value: Change Player Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627808, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Name
+      value: Change Player Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: cd02af53-3853-4621-baae-96005b497ae1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Id
+      value: 98eb0439-c910-4cbe-b091-359a9d5984f7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Id
+      value: fc206c21-e82a-46a3-b4ab-e1902a9aa3b3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: 3130671a-96c5-4430-85fb-20b811f989e5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: dd925343-aa21-4230-9e1b-ebd1ee418307
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Name
+      value: Change Player Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627809, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Name
+      value: Change Player Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Id
+      value: 2a15b2a5-cfab-4a77-a353-b3cf4112a8fc
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Id
+      value: b1f29a6a-b943-445a-8d8b-872b51839be5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Id
+      value: c331bbcb-3328-4fba-855d-2ee3e10d54f4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: jumpAction.m_Name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: moveAction.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: shootAction.m_Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Id
+      value: 5110b95e-0ccc-4315-bbe5-5d2813169491
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Id
+      value: 19b8db7f-c0e7-40a1-93f2-ef46d12260ec
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerLeft.m_Name
+      value: Change Player Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156510557280627810, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+      propertyPath: changePlayerRight.m_Name
+      value: Change Player Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}

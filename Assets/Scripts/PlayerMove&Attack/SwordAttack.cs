@@ -6,7 +6,6 @@ public class SwordAttack : PlayerController
 {
     AnimationController animationController;
     
-    int attackAnimation;
     public int damage = 20;
     public bool readyToAttack;
     public bool collisionDisable;
@@ -22,8 +21,6 @@ public class SwordAttack : PlayerController
     private void Awake() {
         PlayerControllerInstance();
         animationController = GetComponent<AnimationController>();
-        animationController.AnimationPlayerInstance();
-        attackAnimation = Animator.StringToHash("Attack2");
 
         collisionDisable = true;
         readyToAttack = true;
@@ -39,7 +36,7 @@ public class SwordAttack : PlayerController
 
     public void Attack(){
         readyToAttack = false;
-        animationController.animator.CrossFade(attackAnimation,animationController.animationPlayTransition);
+        animationController.ExecuteAnimation("Attack2");
         Invoke(nameof(ResetAttack), 1f);
     }
 

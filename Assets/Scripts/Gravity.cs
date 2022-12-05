@@ -5,10 +5,12 @@ using UnityEngine;
 // this class is used for disabled players, so that they don't float in the air (pretty jank ik)
 public class Gravity : Movement
 {
+    PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerControllerInstance();
+        playerController = GetComponent<PlayerController>();
+        playerController.PlayerControllerInstance();
     }
 
     // Update is called once per frame
@@ -16,7 +18,7 @@ public class Gravity : Movement
     {
         // this code is also in Jump() in the Movement class, only called when the character is disabled
         playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        playerController.controller.Move(playerVelocity * Time.deltaTime);
 
     }
 }
