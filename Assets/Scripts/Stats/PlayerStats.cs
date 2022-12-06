@@ -51,14 +51,6 @@ public class PlayerStats : CharacterStats
         if(deathEffect != null){
             PlayParticleEffects(deathEffect);
         }
-        thirdPersonCamera.LookAt = this.transform;
-        thirdPersonCamera.Follow = this.transform;
-
-        aimCamera.LookAt = this.transform;
-        aimCamera.Follow = this.transform;
-
-        deathCamera.LookAt = this.transform;
-        deathCamera.Follow = this.transform;
         
     }
 
