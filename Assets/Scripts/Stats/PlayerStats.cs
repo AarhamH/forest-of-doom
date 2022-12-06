@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerStats : CharacterStats
 {
@@ -17,17 +18,18 @@ public class PlayerStats : CharacterStats
     AnimationController animationController;
     int dieAnimation;
 
+    public CinemachineVirtualCamera deathCamera;
+    public CinemachineVirtualCamera thirdPersonCamera;
+    public CinemachineVirtualCamera aimCamera;
 
     static public bool playerIsDead;
+    public bool dead;
 
     private void Awake() {
         InitializeHealth(maxHealth);
-
         animationController = GetComponent<AnimationController>();
-        animationController.AnimationPlayerInstance();
-        dieAnimation = Animator.StringToHash("Die");
-
     }
+
     public override void TakeDamage(int damage)
     {
         if(splatterEffect != null){
@@ -42,12 +44,22 @@ public class PlayerStats : CharacterStats
     public override void Die()
     {
         playerIsDead = true;
+        dead = true;
         base.Die();
-        animationController.animator.CrossFade(dieAnimation, animationController.animationPlayTransition);
+        animationController.ExecuteAnimation("Die");
 
         if(deathEffect != null){
             PlayParticleEffects(deathEffect);
         }
+        thirdPersonCamera.LookAt = this.transform;
+        thirdPersonCamera.Follow = this.transform;
+
+        aimCamera.LookAt = this.transform;
+        aimCamera.Follow = this.transform;
+
+        deathCamera.LookAt = this.transform;
+        deathCamera.Follow = this.transform;
+        
     }
 
     

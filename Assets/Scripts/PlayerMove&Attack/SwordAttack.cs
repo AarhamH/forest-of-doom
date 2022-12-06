@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttack : PlayerController
+public class SwordAttack : MonoBehaviour
 {
     AnimationController animationController;
     
@@ -17,17 +17,23 @@ public class SwordAttack : PlayerController
 
     public float knockBackForce;
 
+    PlayerController playerController;
+
+    int powerSwing;
+
 
     private void Awake() {
-        PlayerControllerInstance();
+        playerController = GetComponent<PlayerController>();
+        playerController.PlayerControllerInstance();
         animationController = GetComponent<AnimationController>();
 
         collisionDisable = true;
         readyToAttack = true;
+        powerSwing = 0;
     }
 
     private void Update() {
-        if(shootAction.triggered && readyToAttack){
+        if(playerController.shootAction.triggered && readyToAttack){
             Attack();
             DoDamage();
         }
@@ -35,8 +41,14 @@ public class SwordAttack : PlayerController
 
 
     public void Attack(){
-        readyToAttack = false;
-        animationController.ExecuteAnimation("Attack2");
+        powerSwing++;
+        if(powerSwing == 3) {
+            animationController.ExecuteAnimation("AttackSpin");
+            powerSwing = 0;
+        }   
+        else {
+            animationController.ExecuteAnimation("Attack2");
+        }
         Invoke(nameof(ResetAttack), 1f);
     }
 
@@ -59,7 +71,6 @@ public class SwordAttack : PlayerController
     private void ResetAttack(){
         readyToAttack = true;
         collisionDisable = true;
-
     }
 
     private void OnDrawGizmos() {

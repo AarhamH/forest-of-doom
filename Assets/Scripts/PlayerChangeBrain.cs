@@ -29,7 +29,15 @@ public class PlayerChangeBrain : PlayerController
     }
 
      void Update() {
+
+        for (int i = 0; i < characterList.Count; i++)
+        {
+            if(characterList[i].GetComponent<PlayerStats>().dead) {
+                SetCameras(characterList[i]);
+            }
+        }
         HandleCharacterChange();
+
     }
 
     private void HandleCharacterChange() {
@@ -67,6 +75,8 @@ public class PlayerChangeBrain : PlayerController
 
         for (int i = 0; i < characterList.Count; i++)
         {
+            PlayerStats stats = characterList[i].GetComponent<PlayerStats>();
+
             if(characterList[i] != character){
                 OnOffComponents(characterList[i],false);
             }
@@ -89,14 +99,19 @@ public class PlayerChangeBrain : PlayerController
         }
 
         if(isCharacter) {
-            thirdPersonCamera.LookAt = character.transform;
-            thirdPersonCamera.Follow = character.transform;
-
-            aimCamera.LookAt = character.transform;
-            aimCamera.Follow = character.transform;
-
-            deathCamera.LookAt = character.transform;
-            deathCamera.Follow = character.transform;
+            SetCameras(character);
         }
+
+    }
+
+    public void SetCameras(GameObject character) {
+        thirdPersonCamera.LookAt = character.transform;
+        thirdPersonCamera.Follow = character.transform;
+
+        aimCamera.LookAt = character.transform;
+        aimCamera.Follow = character.transform;
+
+        deathCamera.LookAt = character.transform;
+        deathCamera.Follow = character.transform;
     }
 }

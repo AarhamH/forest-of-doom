@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Throwing : PlayerController
+public class Throwing : MonoBehaviour
 {
     [Header("Throwing References")]
     [SerializeField]
@@ -27,18 +27,16 @@ public class Throwing : PlayerController
     int throwAnimation;
     bool readyToThrow;
     AnimationController animationController;
+    PlayerController playerController;
 
 
     private void Awake() 
     {
         cam = GameObject.Find("Main Camera").transform;
-
-        //initialize player controller and animation controls;
-        PlayerControllerInstance();
+        playerController = GetComponent<PlayerController>();
+        playerController.PlayerControllerInstance();
     
         animationController = GetComponent<AnimationController>();
-        animationController.AnimationPlayerInstance();
-        throwAnimation = Animator.StringToHash("Throw");
     }
 
 
@@ -53,7 +51,7 @@ public class Throwing : PlayerController
     {
         BombVisibleController();
 
-        if(shootAction.triggered && totalThrows > 0 && readyToThrow){
+        if(playerController.shootAction.triggered && totalThrows > 0 && readyToThrow){
             Throw();
         }
     }
@@ -65,7 +63,7 @@ public class Throwing : PlayerController
 
         // throw is delayed so it matches the throw animation
         Invoke(nameof(ThrowMechanics), throwAnimationDelay);
-        animationController.animator.CrossFade(throwAnimation, animationController.animationPlayTransition);   
+        animationController.ExecuteAnimation("Throw");  
 
         // readyToThrow is set to false after so Player can't spam
         readyToThrow = false;
