@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 // parent class instead of general class due to the input system inheritance
 public class PlayerController : MonoBehaviour
 {
-    [Header("Controller")]
+    [Header("Controllers")]
     public CharacterController controller;
 
     [Header("Camera Reference")]

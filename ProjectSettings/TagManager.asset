@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - Thrower
   - Melee
+  - Healer
   layers:
   - Default
   - TransparentFX

@@ -242,8 +242,8 @@ ModelImporter:
       name: KayKit Animated Character|Block
       takeName: KayKit Animated Character|Block
       internalID: 0
-      firstFrame: 0
-      lastFrame: 43
+      firstFrame: 17
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -271,8 +271,8 @@ ModelImporter:
       name: KayKit Animated Character|Cheer
       takeName: KayKit Animated Character|Cheer
       internalID: 0
-      firstFrame: 0
-      lastFrame: 46
+      firstFrame: 9
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

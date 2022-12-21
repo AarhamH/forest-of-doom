@@ -3,13 +3,13 @@ using UnityEngine;
 //used as a boilerplate class with basic features, such as take damage, destroy gameobject at a time, etc
 public class CharacterStats : MonoBehaviour
 {
-    protected int currentHealth {get; set;}
+    protected float currentHealth {get; set;}
 
     static public bool isDead;
 
-    protected void InitializeHealth(int maxHealth)  {currentHealth = maxHealth;}
+    protected void InitializeHealth(float maxHealth)  {currentHealth = maxHealth;}
 
-    public virtual void TakeDamage(int damage){       
+    public virtual void TakeDamage(float damage){       
         currentHealth -= damage;
 
         if(currentHealth <= 0){
@@ -18,7 +18,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     public virtual void Die(){
-        Invoke(nameof(DestroyCharacter),1.3f);
+        Invoke(nameof(DestroyCharacter),1.5f);
     }
 
     protected void DestroyCharacter(){

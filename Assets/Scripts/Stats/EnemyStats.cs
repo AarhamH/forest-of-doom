@@ -6,7 +6,7 @@ public class EnemyStats : CharacterStats
 {
     [Header("Health")]
     [SerializeField]
-    private int maxHealth = 50; 
+    private float maxHealth = 50; 
       
     [Header("Particle Effects")]
     [SerializeField]
@@ -14,20 +14,26 @@ public class EnemyStats : CharacterStats
     [SerializeField]
     private GameObject deathEffect;
 
+    [SerializeField]
+    private Healthbar healthbar;
+
     public bool enemyIsDead;
 
 
     private void Awake() {
         InitializeHealth(maxHealth);
+        healthbar.UpdateHealthBar(maxHealth,currentHealth);
+
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         if(splatterEffect != null){
             PlayParticleEffects(splatterEffect);
         }
-        
         base.TakeDamage(damage);        
+
+        healthbar.UpdateHealthBar(maxHealth,currentHealth);
 
         Debug.Log(transform.name + "has" + currentHealth + "health");
     }

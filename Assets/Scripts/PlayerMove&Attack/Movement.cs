@@ -4,8 +4,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("Movement Quantity Settings")]
-    public float playerSpeed = 4.0f;
-    public float jumpHeight = 2.0f;
+    public float playerSpeed = 7.0f;
+    public float jumpHeight = 1.5f;
     public float gravityValue = -9.81f;
     public float rotationSpeed = 5.0f;
 
@@ -60,9 +60,6 @@ public class Movement : MonoBehaviour
         move = move.x * playerController.cameraTransform.right.normalized + move.z * playerController.cameraTransform.forward.normalized;
         move.y = 0f;
 
-        if(currentAnimationBlendVector.x == 1f) {
-            playerSpeed = 100f;
-        }
         playerController.controller.Move(move * Time.deltaTime * playerSpeed);
 
         //Animator settings

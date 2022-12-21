@@ -28,6 +28,7 @@ public class Throwing : MonoBehaviour
     bool readyToThrow;
     AnimationController animationController;
     PlayerController playerController;
+    Movement movement;
 
 
     private void Awake() 
@@ -35,6 +36,8 @@ public class Throwing : MonoBehaviour
         cam = GameObject.Find("Main Camera").transform;
         playerController = GetComponent<PlayerController>();
         playerController.PlayerControllerInstance();
+
+        movement = GetComponent<Movement>();
     
         animationController = GetComponent<AnimationController>();
     }
@@ -54,13 +57,13 @@ public class Throwing : MonoBehaviour
         if(playerController.shootAction.triggered && totalThrows > 0 && readyToThrow){
             Throw();
         }
+
+        FastThrow();
     }
 
 
     private void Throw()
     {
-        FastThrow();
-
         // throw is delayed so it matches the throw animation
         Invoke(nameof(ThrowMechanics), throwAnimationDelay);
         animationController.ExecuteAnimation("Throw");  
@@ -109,9 +112,12 @@ public class Throwing : MonoBehaviour
         // if the player aims (Mouse 2), the bomb is faster
         if(SwitchVCam.aimCalled){
             throwForce = 100f;
+            movement.playerSpeed = 1.5f;
+
         }
         else{
             throwForce = 30f;
+            movement.playerSpeed = 7f;
         }
     }
 

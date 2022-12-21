@@ -75,7 +75,8 @@ public class EnemyController : MonoBehaviour
         potentialPlayers = Physics.OverlapSphere(transform.position,20f);
         foreach(var collider in potentialPlayers){
             int playerMask = LayerMask.NameToLayer("whatIsPlayer");
-            if(collider.gameObject.layer == playerMask){
+
+            if(collider.gameObject.layer == playerMask && !PlayerStats.playerIsDead){
                 player = collider.gameObject.transform;
                 break;
             }
@@ -85,9 +86,9 @@ public class EnemyController : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         //handle enemy states given conditions
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange)  ChasePlayer(); 
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (!playerInSightRange && !playerInAttackRange && player != null) Patroling();
+        if (playerInSightRange && !playerInAttackRange && player != null)  ChasePlayer(); 
+        if (playerInAttackRange && playerInSightRange && player != null) AttackPlayer();
     }
 
 
@@ -120,11 +121,6 @@ public class EnemyController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        // abovious logic, only here to avoid animation glitches after character dies
-        if(PlayerStats.playerIsDead || player.position == null){
-            Patroling();
-        }
-
         // enemy follows player here
         animationController.animator.CrossFade(runAnimation, 0f);
         agent.SetDestination(player.position);

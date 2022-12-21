@@ -30,7 +30,7 @@ public class PlayerStats : CharacterStats
         animationController = GetComponent<AnimationController>();
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         if(splatterEffect != null){
             PlayParticleEffects(splatterEffect);

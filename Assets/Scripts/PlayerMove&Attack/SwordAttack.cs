@@ -19,28 +19,38 @@ public class SwordAttack : MonoBehaviour
 
     PlayerController playerController;
 
+    public GameObject shield;
+
     int powerSwing;
+    bool attackDisabled;
+
+    Movement movement;
 
 
     private void Awake() {
         playerController = GetComponent<PlayerController>();
         playerController.PlayerControllerInstance();
         animationController = GetComponent<AnimationController>();
+        movement = GetComponent<Movement>();
 
         collisionDisable = true;
         readyToAttack = true;
         powerSwing = 0;
+        shield.SetActive(false);
     }
 
     private void Update() {
-        if(playerController.shootAction.triggered && readyToAttack){
+        if(playerController.shootAction.triggered && readyToAttack && !attackDisabled){
             Attack();
             DoDamage();
         }
+
+        Shield();
     }
 
 
     public void Attack(){
+        readyToAttack = false;
         powerSwing++;
         if(powerSwing == 3) {
             animationController.ExecuteAnimation("AttackSpin");
@@ -49,7 +59,7 @@ public class SwordAttack : MonoBehaviour
         else {
             animationController.ExecuteAnimation("Attack2");
         }
-        Invoke(nameof(ResetAttack), 1f);
+        Invoke(nameof(ResetAttack), 0.75f);
     }
 
     public void DoDamage(){
@@ -68,6 +78,23 @@ public class SwordAttack : MonoBehaviour
         }
     }
 
+    private void Shield(){
+        // if the player aims (Mouse 2), the bomb is faster
+        if(SwitchVCam.aimCalled && !PlayerStats.playerIsDead){
+            movement.playerSpeed = 1.5f;
+            attackDisabled = true;
+            if(attackDisabled) {
+                animationController.animator.Play("Shield");
+            }
+            shield.SetActive(true);
+        }
+        else{
+            movement.playerSpeed = 7f;
+            attackDisabled = false;
+            shield.SetActive(false);
+        }
+    }
+
     private void ResetAttack(){
         readyToAttack = true;
         collisionDisable = true;
@@ -77,5 +104,6 @@ public class SwordAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackPointRange);
     }
+    
 
 }
