@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   splatterEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-  deathEffect: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+  deathEffect: {fileID: 5642766282230003982, guid: b5c8ca7ed10b61e499cce8ec3b6e2e4c, type: 3}
   deathCamera: {fileID: 0}
   thirdPersonCamera: {fileID: 0}
   aimCamera: {fileID: 0}
@@ -1014,9 +1014,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1580535799172915004, guid: 5f58beec7a80be84fae77c5970e52db0, type: 3}
-  - {fileID: 7575915981058242857, guid: 8d62e5f2e2abe69449fc8642c7cae2b6, type: 3}
-  - {fileID: -4770390735465466038, guid: 1389e784f2271d14f9efb72e023fdcec, type: 3}
+  - {fileID: 1957042476528048658, guid: 0d9e63491fbd95a40aab6acc3f81d958, type: 3}
+  - {fileID: 6694312389017904013, guid: 5191ee580312884438fde835d4bbd77e, type: 3}
+  - {fileID: -4770390735465466038, guid: df6af2f6e81d6e04e9dc1c228c501092, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

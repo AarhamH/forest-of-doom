@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public InputAction shootAction;
     public InputAction changePlayerRight;
     public InputAction changePlayerLeft;
+    public InputAction test;
 
     public void PlayerControllerInstance()
     {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         shootAction = playerInput.actions["Shoot"];
         changePlayerRight = playerInput.actions["ChangePlayerRight"];
         changePlayerLeft = playerInput.actions["ChangePlayerLeft"];
+        test = playerInput.actions["Test"];
 
 
         Cursor.lockState = CursorLockMode.Locked;

@@ -3,7 +3,7 @@ using UnityEngine;
 //used as a boilerplate class with basic features, such as take damage, destroy gameobject at a time, etc
 public class CharacterStats : MonoBehaviour
 {
-    protected float currentHealth {get; set;}
+    public float currentHealth {get; set;}
 
     static public bool isDead;
 

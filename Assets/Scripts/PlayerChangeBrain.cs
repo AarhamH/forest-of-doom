@@ -96,6 +96,7 @@ public class PlayerChangeBrain : PlayerController
     }
 
     private void OnOffComponents(GameObject character, bool isCharacter) {
+        
         character.GetComponent<Movement>().enabled = isCharacter;
         character.GetComponent<Aim>().enabled = isCharacter;
         character.GetComponent<Gravity>().enabled = !isCharacter;
@@ -105,12 +106,17 @@ public class PlayerChangeBrain : PlayerController
             character.GetComponent<Outline>().enabled = !isCharacter;
         }
 
+        // refactor later to make it automatic
         if(character.tag == "Thrower") {
             character.GetComponent<Throwing>().enabled = isCharacter;
         }
 
         if(character.tag == "Melee"){
             character.GetComponent<SwordAttack>().enabled = isCharacter;
+        }
+
+        if(character.tag == "Healer"){
+            character.GetComponent<Healing>().enabled = isCharacter;
         }
 
         if(isCharacter) {

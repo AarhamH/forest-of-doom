@@ -65,6 +65,8 @@ public class EnemyController : MonoBehaviour
         walkAnimation = Animator.StringToHash("Walk");
         runAnimation = Animator.StringToHash("Run");
         attackAnimation1 = Animator.StringToHash("Attack");
+
+        this.GetComponent<Outline>().enabled = false;
     }
 
     private void Update()

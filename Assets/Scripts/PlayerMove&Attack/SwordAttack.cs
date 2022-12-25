@@ -20,6 +20,7 @@ public class SwordAttack : MonoBehaviour
     PlayerController playerController;
 
     public GameObject shield;
+    public GameObject swordSwing;
 
     int powerSwing;
     bool attackDisabled;
@@ -54,6 +55,7 @@ public class SwordAttack : MonoBehaviour
         powerSwing++;
         if(powerSwing == 3) {
             animationController.ExecuteAnimation("AttackSpin");
+            Instantiate(swordSwing, transform.position,Quaternion.identity);
             powerSwing = 0;
         }   
         else {

@@ -7,7 +7,7 @@ public class PlayerStats : CharacterStats
 {
     [Header("Health")]
     [SerializeField]
-    private int maxHealth = 100; 
+    public float maxHealth = 100; 
       
     [Header("Particle Effects")]
     [SerializeField]

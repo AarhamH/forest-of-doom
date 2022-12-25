@@ -19,6 +19,14 @@ public class ProjectileAddon : MonoBehaviour
     public int explosionDamage;
     public GameObject explosionEffect;
 
+    [Header("Lighter")]
+    public bool isLight;
+    public float lightRadius;
+
+    [Header("Healing")]
+    public bool isHeal;
+    public float healRadius = 5f;
+
     private Rigidbody rb;
 
     private bool hitTarget;
@@ -27,6 +35,7 @@ public class ProjectileAddon : MonoBehaviour
     {
         // get rigidbody component
         rb = GetComponent<Rigidbody>();
+        
 
         // spawn muzzleEffect (if assigned)
         if(muzzleEffect != null)
@@ -61,6 +70,16 @@ public class ProjectileAddon : MonoBehaviour
         if (isExplosive)
         {
             Explode();
+            return;
+        }
+
+        else if (isLight) {
+            LightenUp();
+            return;
+        }
+
+        else if (isHeal) {
+            Heal();
             return;
         }
 
@@ -109,7 +128,37 @@ public class ProjectileAddon : MonoBehaviour
         }
 
         // destroy projectile with 0.1 seconds delay
-        Invoke(nameof(DestroyProjectile), 0.1f);
+        wait(0.5f);
+        Destroy(gameObject);
+    }
+
+    private void LightenUp() {
+        Collider[] objectsInRange = Physics.OverlapSphere(transform.position,lightRadius);
+
+        for(int i=0; i<objectsInRange.Length; i++) {
+            if(objectsInRange[i].gameObject.tag == "Enemy" ) {
+                objectsInRange[i].GetComponent<Outline>().enabled = true;
+            }
+        }
+        wait(0.5f);
+        Destroy(gameObject);
+    }
+
+    private void Heal() {
+        Collider[] objectsInRange = Physics.OverlapSphere(transform.position,healRadius);
+
+        for(int i=0; i<objectsInRange.Length; i++) {
+            int playerMask = LayerMask.NameToLayer("whatIsPlayer");
+            if(objectsInRange[i].gameObject.layer == playerMask) {
+                objectsInRange[i].GetComponent<CharacterStats>().currentHealth+=10;
+                if(objectsInRange[i].GetComponent<CharacterStats>().currentHealth >= objectsInRange[i].GetComponent<PlayerStats>().maxHealth) {
+                   objectsInRange[i].GetComponent<CharacterStats>().currentHealth = objectsInRange[i].GetComponent<PlayerStats>().maxHealth;
+                }
+                Debug.Log(objectsInRange[i].name + objectsInRange[i].GetComponent<CharacterStats>().currentHealth);
+            }
+        }
+        wait(0.1f);
+        Destroy(gameObject); 
     }
 
     private void DestroyProjectile()
@@ -117,11 +166,6 @@ public class ProjectileAddon : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // just graphics stuff
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
-    }
+    IEnumerator wait(float num) { yield return new WaitForSeconds(num); }
 
 }
