@@ -1,2 +1,2 @@
-# 3d-shooter-game
-A simple 3D shooter game I made in Unity
+# Pichi Dungeon Crawlers
+A third person action/dungeon crawler game made in unity.
