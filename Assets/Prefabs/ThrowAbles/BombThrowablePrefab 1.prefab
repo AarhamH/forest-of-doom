@@ -138,6 +138,11 @@ MonoBehaviour:
   explosionForce: 3
   explosionDamage: 25
   explosionEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+  thrower: {fileID: 2601709639890176975, guid: 96d72d12bfe0fc447ad6efc5cc668c05, type: 3}
+  isLight: 0
+  lightRadius: 0
+  isHeal: 0
+  healRadius: 5
 --- !u!96 &-8697119982180834311
 TrailRenderer:
   serializedVersion: 2

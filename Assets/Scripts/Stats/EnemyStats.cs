@@ -23,7 +23,6 @@ public class EnemyStats : CharacterStats
     private void Awake() {
         InitializeHealth(maxHealth);
         healthbar.UpdateHealthBar(maxHealth,currentHealth);
-
     }
 
     public override void TakeDamage(float damage)

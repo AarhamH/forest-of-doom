@@ -31,6 +31,7 @@ public class ProjectileAddon : MonoBehaviour
 
     private bool hitTarget;
 
+
     private void Start()
     {
         // get rigidbody component

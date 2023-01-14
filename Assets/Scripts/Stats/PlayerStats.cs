@@ -16,6 +16,7 @@ public class PlayerStats : CharacterStats
     private GameObject deathEffect;
 
     AnimationController animationController;
+    MainHealth mainHealth;
     int dieAnimation;
 
     public CinemachineVirtualCamera deathCamera;
@@ -28,6 +29,11 @@ public class PlayerStats : CharacterStats
     private void Awake() {
         InitializeHealth(maxHealth);
         animationController = GetComponent<AnimationController>();
+        mainHealth = GetComponent<MainHealth>();
+    }
+
+    private void Update() {
+        mainHealth.UpdateHealth(maxHealth,currentHealth);
     }
 
     public override void TakeDamage(float damage)
