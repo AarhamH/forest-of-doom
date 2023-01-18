@@ -15,13 +15,14 @@ public class Healing : MonoBehaviour
     
     [Header("Throw Settings")]
     [SerializeField]
-    private int totalThrows = 50;
+    private float maxMana = 200f;
+    private float currentMana;
+
     [SerializeField]
-    private float throwCooldown = 0.001f;
+    private float throwCooldown = 1f;
     [SerializeField]
     private float throwUpwardForce;
     [SerializeField]
-    private float throwAnimationDelay = 0.3f;
     private float throwForce = 25f;
 
     int throwAnimation;
@@ -29,6 +30,7 @@ public class Healing : MonoBehaviour
     AnimationController animationController;
     PlayerController playerController;
     Movement movement;
+    ManaBar manaBar;
 
     bool healingState;
 
@@ -41,6 +43,10 @@ public class Healing : MonoBehaviour
         movement = GetComponent<Movement>();
     
         animationController = GetComponent<AnimationController>();
+
+        currentMana = maxMana;
+        manaBar = GetComponent<ManaBar>();
+
     }
 
 
@@ -53,10 +59,11 @@ public class Healing : MonoBehaviour
 
     private void Update() 
     {
-        if(playerController.shootAction.triggered && totalThrows > 0 && readyToThrow){
+        if(playerController.shootAction.triggered && currentMana > 0 && readyToThrow){
             Throw();
         }
         FastThrow();
+        manaBar.UpdateHealth(maxMana,currentMana);
     }
 
 
@@ -64,16 +71,33 @@ public class Healing : MonoBehaviour
     {
         // throw is delayed so it matches the throw animation
         if(healingState) {
-            ThrowMechanics(healingObject);
+            float subMana = 80f;
+            if(currentMana - subMana <= 0) {
+
+            }
+            else {
+                ThrowMechanics(healingObject);
+                currentMana -= subMana;
+                readyToThrow = false;               
+            }
         }
 
         else {
-            ThrowMechanics(throwableObject);
+            float subMana = 50f;
+            if(currentMana - subMana <= 0) {
+
+            }
+            else {
+                ThrowMechanics(throwableObject);
+                currentMana -= subMana;
+                readyToThrow = false;
+            }
+
         }
+
         animationController.ExecuteAnimation("Throw");  
+        Invoke(nameof(ResetThrow), throwCooldown);
 
-
-        totalThrows--;
         }
 
 

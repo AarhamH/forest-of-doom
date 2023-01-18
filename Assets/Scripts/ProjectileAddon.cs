@@ -16,7 +16,7 @@ public class ProjectileAddon : MonoBehaviour
     public bool isExplosive;
     public float explosionRadius;
     public float explosionForce;
-    public int explosionDamage;
+    public int explosionDamage = 50;
     public GameObject explosionEffect;
 
     [Header("Lighter")]

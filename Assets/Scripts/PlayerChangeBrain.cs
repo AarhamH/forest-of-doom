@@ -101,7 +101,6 @@ public class PlayerChangeBrain : PlayerController
         character.GetComponent<Aim>().enabled = isCharacter;
         character.GetComponent<Gravity>().enabled = !isCharacter;
         character.GetComponent<Animator>().enabled = isCharacter;
-        character.GetComponent<MainHealth>().enabled = isCharacter;
 
         if(character.GetComponent<Outline>() != null && characterList.Count > 1) {
             character.GetComponent<Outline>().enabled = !isCharacter;
@@ -112,11 +111,11 @@ public class PlayerChangeBrain : PlayerController
             character.GetComponent<Throwing>().enabled = isCharacter;
         }
 
-        if(character.tag == "Melee"){
+        else if(character.tag == "Melee"){
             character.GetComponent<SwordAttack>().enabled = isCharacter;
         }
 
-        if(character.tag == "Healer"){
+        else if(character.tag == "Healer"){
             character.GetComponent<Healing>().enabled = isCharacter;
         }
 

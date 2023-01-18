@@ -17,7 +17,7 @@ public class Throwing : MonoBehaviour
     [SerializeField]
     private int totalThrows = 50;
     [SerializeField]
-    private float throwCooldown = 0.3f;
+    private float throwCooldown = 1f;
     [SerializeField]
     private float throwUpwardForce;
     [SerializeField]
