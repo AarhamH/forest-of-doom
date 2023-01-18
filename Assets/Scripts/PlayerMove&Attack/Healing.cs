@@ -30,7 +30,7 @@ public class Healing : MonoBehaviour
     AnimationController animationController;
     PlayerController playerController;
     Movement movement;
-    ManaBar manaBar;
+    AmmoBar manaBar;
 
     bool healingState;
 
@@ -45,7 +45,7 @@ public class Healing : MonoBehaviour
         animationController = GetComponent<AnimationController>();
 
         currentMana = maxMana;
-        manaBar = GetComponent<ManaBar>();
+        manaBar = GetComponent<AmmoBar>();
 
     }
 

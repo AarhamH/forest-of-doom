@@ -15,7 +15,8 @@ public class Throwing : MonoBehaviour
     
     [Header("Throw Settings")]
     [SerializeField]
-    private int totalThrows = 50;
+    private int totalThrows = 4;
+    private int currentThrows;
     [SerializeField]
     private float throwCooldown = 1f;
     [SerializeField]
@@ -30,6 +31,8 @@ public class Throwing : MonoBehaviour
     PlayerController playerController;
     Movement movement;
 
+    AmmoBar bombCounter;
+
 
     private void Awake() 
     {
@@ -40,6 +43,10 @@ public class Throwing : MonoBehaviour
         movement = GetComponent<Movement>();
     
         animationController = GetComponent<AnimationController>();
+
+        currentThrows = totalThrows;
+
+        bombCounter = GetComponent<AmmoBar>();
     }
 
 
@@ -54,11 +61,13 @@ public class Throwing : MonoBehaviour
     {
         BombVisibleController();
 
-        if(playerController.shootAction.triggered && totalThrows > 0 && readyToThrow){
+        if(playerController.shootAction.triggered && currentThrows > 0 && readyToThrow){
             Throw();
         }
 
         FastThrow();
+
+        bombCounter.UpdateHealth(totalThrows,currentThrows);
     }
 
 
@@ -73,7 +82,7 @@ public class Throwing : MonoBehaviour
 
         Invoke(nameof(ResetThrow), throwCooldown);
 
-        totalThrows--;
+        currentThrows--;
         }
 
 
@@ -125,7 +134,7 @@ public class Throwing : MonoBehaviour
     private void BombVisibleController(){
         // bomb disappears when the bomb is thrown
         // cosmetic feature
-        if(!readyToThrow || totalThrows <= 0){
+        if(!readyToThrow || currentThrows <= 0){
             Invoke(nameof(GetRidOfBomb), throwAnimationDelay);
         }
         else{

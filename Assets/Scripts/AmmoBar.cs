@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ManaBar : MonoBehaviour
+public class AmmoBar : MonoBehaviour
 {
     [SerializeField]
     private Image foreground;
@@ -12,8 +12,8 @@ public class ManaBar : MonoBehaviour
     private float reduceSpeed = 1f;
     private float target = 1f;
 
-    public void UpdateHealth(float maxHealth, float currentHealth) {
-        target = currentHealth/maxHealth;
+    public void UpdateHealth(float max, float current) {
+        target = current/max;
     }
 
     private void Update() {
