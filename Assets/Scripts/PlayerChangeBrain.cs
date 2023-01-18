@@ -119,8 +119,14 @@ public class PlayerChangeBrain : PlayerController
             character.GetComponent<Healing>().enabled = isCharacter;
         }
 
+        GameObject icon = character.transform.Find("HealthUI").GetChild(1).gameObject;
+
         if(isCharacter) {
             SetCameras(character);
+            icon.transform.localScale =  new Vector3(0.8f,0.8f,0.8f);
+        }
+        else {
+            icon.transform.localScale =  new Vector3(0.5757f,0.5757f,0.5757f);
         }
 
     }

@@ -15,8 +15,8 @@ public class Healing : MonoBehaviour
     
     [Header("Throw Settings")]
     [SerializeField]
-    private float maxMana = 200f;
-    private float currentMana;
+    public float maxMana = 200f;
+    public float currentMana;
 
     [SerializeField]
     private float throwCooldown = 1f;

@@ -15,8 +15,8 @@ public class Throwing : MonoBehaviour
     
     [Header("Throw Settings")]
     [SerializeField]
-    private int totalThrows = 4;
-    private int currentThrows;
+    public int totalThrows = 4;
+    public int currentThrows;
     [SerializeField]
     private float throwCooldown = 1f;
     [SerializeField]

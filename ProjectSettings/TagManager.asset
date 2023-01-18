@@ -10,6 +10,11 @@ TagManager:
   - Thrower
   - Melee
   - Healer
+  - Mana
+  - LargeBag
+  - SmallBag
+  - Bomb
+  - Health
   layers:
   - Default
   - TransparentFX
