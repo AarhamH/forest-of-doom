@@ -17,8 +17,11 @@ public class EnemyStats : CharacterStats
     [SerializeField]
     private Healthbar healthbar;
 
-    public bool enemyIsDead;
+    [SerializeField]
+    private GameObject[] drops;
 
+
+    public bool enemyIsDead;
 
     private void Awake() {
         InitializeHealth(maxHealth);
@@ -39,9 +42,11 @@ public class EnemyStats : CharacterStats
 
     public override void Die()
     {
+        int randomIndex = Random.Range(0,drops.Length);
         enemyIsDead = true;
         base.Die();
         PlayParticleEffects(deathEffect);
+        Instantiate(drops[randomIndex], new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity);
 
     }
 

@@ -24,7 +24,7 @@ public class PlayerChangeBrain : PlayerController
             GameObject child = this.transform.GetChild(i).gameObject;
             int playerMask = LayerMask.NameToLayer("whatIsPlayer");
 
-            if(child.layer == playerMask && !PlayerStats.playerIsDead){
+            if(child.layer == playerMask && child.active){
                 characterList.Add(child);
                 index++;
             }
@@ -44,14 +44,16 @@ public class PlayerChangeBrain : PlayerController
     }
 
      void Update() {
-
         for (int i = 0; i < characterList.Count; i++)
         {
             if(characterList[i].GetComponent<PlayerStats>().dead) {
                 SetCameras(characterList[i]);
             }
         }
+        
         HandleCharacterChange();
+
+
     }
 
     private void HandleCharacterChange() {
@@ -102,8 +104,12 @@ public class PlayerChangeBrain : PlayerController
         character.GetComponent<Gravity>().enabled = !isCharacter;
         character.GetComponent<Animator>().enabled = isCharacter;
 
-        if(character.GetComponent<Outline>() != null && characterList.Count > 1) {
-            character.GetComponent<Outline>().enabled = !isCharacter;
+        if(character.GetComponent<Outline>() != null && characterList.Count == 1) {
+            character.GetComponent<Outline>().enabled = false;
+        }
+
+        else {
+            character.GetComponent<Outline>().enabled = !isCharacter;            
         }
 
         // refactor later to make it automatic

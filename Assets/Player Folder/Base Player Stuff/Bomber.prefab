@@ -40,7 +40,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671298049761032896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5617143, y: 9.104044, z: -15.7741375}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -223,6 +223,7 @@ MonoBehaviour:
   throwableObject: {fileID: 6969395698222150026, guid: 077f89dd95c5a9a4caa8891c205ac38f, type: 3}
   bombInHand: {fileID: 671298051772092227}
   totalThrows: 4
+  currentThrows: 0
   throwCooldown: 1
   throwUpwardForce: 0
   throwAnimationDelay: 0.4
