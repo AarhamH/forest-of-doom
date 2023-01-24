@@ -490,9 +490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2725f08da285ca4d9eb690ef52b4706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 0
+  interactionType: 1
   characterBrain: {fileID: 0}
   playerChangeBrain: {fileID: 0}
+  dialogue: {fileID: 0}
   index: 5
 --- !u!1 &8887053869761313577
 GameObject:

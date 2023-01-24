@@ -204,7 +204,7 @@
                     "name": "",
                     "id": "03846b1e-c3e5-4854-83c0-33262e4d08e9",
                     "path": "<Keyboard>/t",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Test",

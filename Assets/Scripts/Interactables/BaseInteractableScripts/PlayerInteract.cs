@@ -44,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
     void HandleInteraction(Interactable interactable) {
         switch (interactable.interactionType) {
             case Interactable.InteractionType.Click:
-                if(playerController.shootAction.triggered) {
+                if(playerController.test.triggered) {
                     interactable.Interact();
                 }
             break;

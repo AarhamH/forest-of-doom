@@ -6,11 +6,14 @@ public class Crucifix : Interactable
 {
     public GameObject characterBrain;
     public PlayerChangeBrain playerChangeBrain;
+    public Dialogue dialogue;
+    public DialogueManager manager;
     
     [SerializeField]
     private int index;
-    private void Start() {
 
+
+    private void Start() {
     }
 
     public override string GetDescription()
@@ -20,6 +23,7 @@ public class Crucifix : Interactable
 
     public override void Interact()
     {
+        Talk();
         ActivateChild(index);
         Destroy(this.gameObject);
 
@@ -31,5 +35,9 @@ public class Crucifix : Interactable
         newGuy.transform.position = this.transform.position;
         playerChangeBrain.characterList.Add(newGuy);
         playerChangeBrain.Swap();
+    }
+
+    private void Talk() {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }
