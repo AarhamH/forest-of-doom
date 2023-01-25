@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class EnemyStats : CharacterStats
 {
@@ -20,16 +21,20 @@ public class EnemyStats : CharacterStats
     [SerializeField]
     private GameObject[] drops;
 
+    public CinemachineShake shake;
+    float shakeTimer = 1;   
 
     public bool enemyIsDead;
 
     private void Awake() {
         InitializeHealth(maxHealth);
         healthbar.UpdateHealthBar(maxHealth,currentHealth);
+        shake = GameObject.Find("Shake").GetComponent<CinemachineShake>();
     }
 
     public override void TakeDamage(float damage)
     {
+        shake.Shake(2f,0);
         if(splatterEffect != null){
             PlayParticleEffects(splatterEffect);
         }
@@ -46,8 +51,7 @@ public class EnemyStats : CharacterStats
         enemyIsDead = true;
         base.Die();
         PlayParticleEffects(deathEffect);
-        Instantiate(drops[randomIndex], new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity);
-
+        Instantiate(drops[randomIndex], new Vector3(transform.position.x, 1f, transform.position.z), Quaternion.identity);
     }
 
 

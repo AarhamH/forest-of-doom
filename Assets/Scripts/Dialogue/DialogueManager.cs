@@ -11,6 +11,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     PlayerController playerController;
     public GameObject dialogueBox;
+    public GameObject icons;
+
+    public float speed = 0.1f;
+    public string fullText;
+    public string currentText = "";
 
     float timer = 0f;
     float endTimer = 20f;
@@ -34,13 +39,11 @@ public class DialogueManager : MonoBehaviour
         }
         if(started) {
             timer += Time.deltaTime;
-            if(timer >= endTimer) {
+            if(timer >= endTimer || playerController.test.triggered) {
                 timer = 0f;
                 DisplayNextSentence();
             }
-            else if(playerController.test.triggered) {
-                DisplayNextSentence();
-            }
+
         }
     }
 
@@ -64,16 +67,37 @@ public class DialogueManager : MonoBehaviour
             return;
         }
             string sentence = sentences.Dequeue();
-            dialogueText.text = sentence;
+            StopAllCoroutines();
+            StartCoroutine(ShowText(sentence));
             Debug.Log(sentence);
-        
-
-
-
     }
 
     void EndDialogue() {
         dialogueBox.SetActive(false);
         Debug.Log("Dialog Ended");
     }
+
+    IEnumerator ShowText(string parseText) {
+        currentText = "";
+        for(int i=0;i<parseText.Length;i++) {
+            currentText += parseText[i];
+            dialogueText.text = currentText;
+            yield return new WaitForSeconds(speed); 
+        }
+    }
+
+    public void SetActiveIcon(string tag) {
+        for(int i=0;i<icons.transform.childCount;i++) {
+            if(icons.transform.GetChild(i).tag != tag) {
+                icons.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            if(icons.transform.GetChild(i).tag == tag) {
+                icons.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+        }
+    }
+
+
+
 }

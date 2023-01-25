@@ -1059,6 +1059,8 @@ MonoBehaviour:
   - {fileID: 2160978495362427061, guid: 81bb37b238c713d489b1b685741028d6, type: 3}
   - {fileID: 1939300849185447385, guid: 046b0d5ffa6410742a835929dd95f57f, type: 3}
   - {fileID: 5943846358108383780, guid: 88dcb92f111d9024188929bec2738ebe, type: 3}
+  - {fileID: 1858127616147261064, guid: 6d243f9e757c55342ac1f6bede3f98d4, type: 3}
+  virtualCamera: {fileID: 0}
   enemyIsDead: 0
 --- !u!135 &383960888519621285
 SphereCollider:

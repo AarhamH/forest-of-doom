@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public int numOfEnemies;
     public bool active;
     float timer;
-    float offsetTime = 30f;
+    float offsetTime = 90f;
 
     private void Update() {
 

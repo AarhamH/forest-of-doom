@@ -9,8 +9,7 @@ public class Crucifix : Interactable
     public Dialogue dialogue;
     public DialogueManager manager;
     
-    [SerializeField]
-    private int index;
+    int index;
 
 
     private void Start() {
@@ -18,7 +17,7 @@ public class Crucifix : Interactable
 
     public override string GetDescription()
     {
-        return "[T] Rescue the prisoner";
+        return "Hold [T] Rescue the prisoner";
     }
 
     public override void Interact()
@@ -30,6 +29,11 @@ public class Crucifix : Interactable
     }
 
     private void ActivateChild(int index) {
+        for(int i=0;i<characterBrain.transform.childCount;i++) {
+            if(characterBrain.transform.GetChild(i).tag == this.tag) {
+                index = i;
+            }
+        }
         characterBrain.transform.GetChild(index).gameObject.SetActive(true);
         GameObject newGuy = characterBrain.transform.GetChild(index).gameObject;
         newGuy.transform.position = this.transform.position;
@@ -39,5 +43,6 @@ public class Crucifix : Interactable
 
     private void Talk() {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().SetActiveIcon(this.tag);
     }
 }

@@ -25,6 +25,7 @@ public class ProjectileAddon : MonoBehaviour
 
     [Header("Healing")]
     public bool isHeal;
+    public GameObject healEffect;
     public float healRadius = 5f;
 
     private Rigidbody rb;
@@ -146,6 +147,9 @@ public class ProjectileAddon : MonoBehaviour
     }
 
     private void Heal() {
+        if (healEffect != null)
+            Instantiate(healEffect, transform.position, Quaternion.identity);
+            
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position,healRadius);
 
         for(int i=0; i<objectsInRange.Length; i++) {

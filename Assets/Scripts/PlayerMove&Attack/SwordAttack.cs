@@ -76,6 +76,7 @@ public class SwordAttack : MonoBehaviour
                 Vector3 forceDirection = (objectPos - attackPoint.position);
 
                 target.GetComponent<Rigidbody>().AddForceAtPosition(forceDirection*knockBackForce + Vector3.up*knockBackForce,attackPoint.position + new Vector3(0,-10f,0),ForceMode.Impulse);
+
             }
         }
     }

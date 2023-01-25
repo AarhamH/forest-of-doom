@@ -23,7 +23,7 @@ public class Destroyables : Interactable
 
     public override string GetDescription()
     {
-        return "Needs some form of <i><b>Explosive</b></i> to break through...";
+        return "Needs some form of <i><b><u>Explosive</u></b></i> to break through...";
     }
 
     public override void Interact() {}

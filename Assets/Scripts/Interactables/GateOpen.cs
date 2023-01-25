@@ -8,7 +8,7 @@ public class GateOpen : Interactable
 
     public override string GetDescription()
     {
-        return "9 Gems are around the land. Activate them all to open this gate...";
+        return "<ul>9</ul> Gems are around the land. Activate them all to open this gate...";
     }
 
     private void Awake() {

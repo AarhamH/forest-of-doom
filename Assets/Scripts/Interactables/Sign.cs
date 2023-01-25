@@ -8,7 +8,7 @@ public class Sign : Interactable
 
     public override string GetDescription()
     {
-        return "9 Gems are around the land. Activate them all to open this gate...";
+        return "<u>9</u> Gems are around the land. Activate them all to open this gate...";
     }
 
     public override void Interact(){}

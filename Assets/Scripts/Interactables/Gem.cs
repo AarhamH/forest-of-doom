@@ -7,6 +7,9 @@ public class Gem : Interactable
     public PlayerChangeBrain playerChangeBrain;
     public GameObject bomb;
     public GateOpen gateOpen;
+    
+    [SerializeField]
+    private GameObject activateEffect;
     int counter;
 
     private void Start() {
@@ -16,12 +19,12 @@ public class Gem : Interactable
     public override string GetDescription()
     {
         if(playerChangeBrain.character.tag != "Healer") {
-            return "This gem requires <i><b>magic</b></i> to be activated!";
+            return "This gem requires <i><b><u>magic</u></b></i> to be activated!";
         }
         else if(playerChangeBrain.character.gameObject.GetComponent<Healing>().currentMana- 50f <= 0f) {
             return "Not enough mana to activate gem";
         }
-        return "[T] Activate Gem";
+        return "Hold [T] Activate Gem";
     }
 
     public override void Interact()
@@ -37,6 +40,7 @@ public class Gem : Interactable
                     gateOpen.OpenGate();
                 }
                 playerChangeBrain.character.gameObject.GetComponent<Healing>().currentMana -= 50f;
+                Instantiate(activateEffect,new Vector3(this.transform.position.x,1.3f,this.transform.position.z),Quaternion.identity);
                 this.GetComponent<BoxCollider>().enabled = false;
             }
         }

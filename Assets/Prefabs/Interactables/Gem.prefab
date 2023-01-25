@@ -147,7 +147,8 @@ MonoBehaviour:
   interactionType: 1
   playerChangeBrain: {fileID: 0}
   bomb: {fileID: 6969395698222150026, guid: 077f89dd95c5a9a4caa8891c205ac38f, type: 3}
-  gate: {fileID: 9212800240785553275, guid: 3e547a3f8eabe5e44b251fd2e2e9fbd9, type: 3}
+  gateOpen: {fileID: 0}
+  activateEffect: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
 --- !u!1 &8248668645021012669
 GameObject:
   m_ObjectHideFlags: 0
