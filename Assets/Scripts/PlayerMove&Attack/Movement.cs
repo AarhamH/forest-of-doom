@@ -60,6 +60,7 @@ public class Movement : MonoBehaviour
         move = move.x * playerController.cameraTransform.right.normalized + move.z * playerController.cameraTransform.forward.normalized;
         move.y = 0f;
 
+
         playerController.controller.Move(move * Time.deltaTime * playerSpeed);
 
         //Animator settings

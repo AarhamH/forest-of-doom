@@ -96,6 +96,7 @@ public class EnemyController : MonoBehaviour
 
     private void Patroling()
     {
+
         animationController.animator.CrossFade(walkAnimation, 0f);   
  
         if (!walkPointSet) SearchWalkPoint();

@@ -49,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 pos = center + new Vector3(Random.Range(-xComp-4,xComp+4),2f,Random.Range(-zComp-20,zComp+20));
         Instantiate(spawnEffect,pos,Quaternion.identity);
         Instantiate(enemy,pos,Quaternion.identity);
+        AudioManager.Instance.PlayEffect("EnemySpawn");
     }
 
 

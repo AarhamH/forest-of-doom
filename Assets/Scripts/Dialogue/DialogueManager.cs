@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject icons;
 
-    public float speed = 0.1f;
     public string fullText;
     public string currentText = "";
 
@@ -62,6 +61,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence() {
+        AudioManager.Instance.PlayEffect("DialogueSound");
         if(sentences.Count == 0) {
             EndDialogue();
             return;
@@ -80,9 +80,9 @@ public class DialogueManager : MonoBehaviour
     IEnumerator ShowText(string parseText) {
         currentText = "";
         for(int i=0;i<parseText.Length;i++) {
+            yield return new WaitForSeconds(0.005f); 
             currentText += parseText[i];
             dialogueText.text = currentText;
-            yield return new WaitForSeconds(speed); 
         }
     }
 

@@ -76,6 +76,7 @@ public class Healing : MonoBehaviour
 
             }
             else {
+                AudioManager.Instance.PlayEffect("HealShoot");
                 ThrowMechanics(healingObject);
                 currentMana -= subMana;
                 readyToThrow = false;               
@@ -88,6 +89,7 @@ public class Healing : MonoBehaviour
 
             }
             else {
+                AudioManager.Instance.PlayEffect("LightShoot");
                 ThrowMechanics(throwableObject);
                 currentMana -= subMana;
                 readyToThrow = false;

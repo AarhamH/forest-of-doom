@@ -47,6 +47,7 @@ public class EnemyStats : CharacterStats
 
     public override void Die()
     {
+        AudioManager.Instance.PlayEffect("GateDestroy");
         int randomIndex = Random.Range(0,drops.Length);
         enemyIsDead = true;
         base.Die();

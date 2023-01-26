@@ -69,6 +69,8 @@ public class SwordAttack : MonoBehaviour
         foreach(Collider target in targets){
             if(target.tag == "Enemy"){
                 target.gameObject.GetComponent<EnemyStats>().TakeDamage(damage);
+            
+                AudioManager.Instance.PlayEffect("NormalAttackSword");
             }
 
             if(target.GetComponent<Rigidbody>() != null){

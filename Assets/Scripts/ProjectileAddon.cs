@@ -97,6 +97,8 @@ public class ProjectileAddon : MonoBehaviour
         // spawn explosion effect (if assigned)
         if (explosionEffect != null)
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            
+        AudioManager.Instance.PlayEffect("BombThrow");
 
         // find all the objects that are inside the explosion range
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position, explosionRadius);
@@ -149,6 +151,7 @@ public class ProjectileAddon : MonoBehaviour
     private void Heal() {
         if (healEffect != null)
             Instantiate(healEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayEffect("HealImpact");
             
         Collider[] objectsInRange = Physics.OverlapSphere(transform.position,healRadius);
 

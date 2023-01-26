@@ -7,6 +7,7 @@ public class Destroyables : Interactable
     public GameObject explosion;
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "BombThrow" && this.tag == "Gate-Breakable") {
+            AudioManager.Instance.PlayEffect("GateDestroy");
             Instantiate(explosion,new Vector3(transform.position.x, 2.5f,transform.position.z),Quaternion.identity);
             Destroy(gameObject);
         }

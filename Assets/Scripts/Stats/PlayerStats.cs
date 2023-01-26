@@ -43,12 +43,13 @@ public class PlayerStats : CharacterStats
         }
         
         base.TakeDamage(damage);        
-
+        AudioManager.Instance.PlayEffect("PlayerDamage");
         Debug.Log(transform.name + "has" + currentHealth + "health");
     }
 
     public override void Die()
     {
+        AudioManager.Instance.PlayEffect("PlayerDie");
         playerIsDead = true;
         dead = true;
         base.Die();
