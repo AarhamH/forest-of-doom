@@ -18,6 +18,7 @@ TagManager:
   - BombThrow
   - Gate-Breakable
   - Cinemachine
+  - WinnerPlatform
   layers:
   - Default
   - TransparentFX

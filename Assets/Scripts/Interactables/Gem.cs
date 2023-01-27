@@ -40,6 +40,7 @@ public class Gem : Interactable
                     gateOpen.OpenGate();
                 }
                 playerChangeBrain.character.gameObject.GetComponent<Healing>().currentMana -= 50f;
+                AudioManager.Instance.PlayEffect("HealImpact");
                 Instantiate(activateEffect,new Vector3(this.transform.position.x,1.3f,this.transform.position.z),Quaternion.identity);
                 this.GetComponent<BoxCollider>().enabled = false;
             }

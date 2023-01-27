@@ -12,7 +12,6 @@ public class PopUp : MonoBehaviour
     float time = 0f;
     float max = 5f;
 
-
     private void Awake() {
         characterBrain = GameObject.Find("CharacterBrain");
         playerChangeBrain = characterBrain.GetComponent<PlayerChangeBrain>();

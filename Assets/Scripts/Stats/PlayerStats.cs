@@ -27,6 +27,8 @@ public class PlayerStats : CharacterStats
     public bool dead;
 
     private void Awake() {
+        playerIsDead = false;
+        dead = false;
         InitializeHealth(maxHealth);
         animationController = GetComponent<AnimationController>();
         mainHealth = GetComponent<MainHealth>();
