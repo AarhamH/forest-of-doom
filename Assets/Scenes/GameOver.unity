@@ -261,7 +261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.748474, y: -69.00583}
+  m_AnchoredPosition: {x: 12.944519, y: -69.00583}
   m_SizeDelta: {x: 336.56, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183148156
@@ -310,7 +310,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2036308013}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1041,7 +1041,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.006
+  m_Volume: 0.462
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1251,7 +1251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.2323, y: 376.58325}
+  m_AnchoredPosition: {x: -147.28748, y: 376.58325}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121570499
@@ -1523,7 +1523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.748474, y: -361.31427}
+  m_AnchoredPosition: {x: 12.944519, y: -361.31427}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736753096
@@ -1657,7 +1657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.748474, y: -216.28528}
+  m_AnchoredPosition: {x: 12.944519, y: -216.28528}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737230839
@@ -1789,6 +1789,7 @@ MonoBehaviour:
   effectSounds: []
   musicSource: {fileID: 1097428945}
   effectSource: {fileID: 297792874}
+  slider: {fileID: 0}
 --- !u!4 &1990317708
 Transform:
   m_ObjectHideFlags: 0

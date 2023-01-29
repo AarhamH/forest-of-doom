@@ -8,7 +8,7 @@ public class Aim : MonoBehaviour
     [SerializeField]
     private Transform aimTarget;
     [SerializeField]
-    private float aimDistance = 10f;
+    private float aimDistance = 0f;
 
     PlayerController playerController;
 
@@ -23,7 +23,7 @@ public class Aim : MonoBehaviour
 
     // controls the head movement relative to a line that goes through the cursor
     private void HeadAim() {
-        aimTarget.position = playerController.cameraTransform.position + playerController.cameraTransform.forward * aimDistance;
+        aimTarget.position = playerController.cameraTransform.position + playerController.cameraTransform.forward * (aimDistance + Time.deltaTime);
     }
 
 }

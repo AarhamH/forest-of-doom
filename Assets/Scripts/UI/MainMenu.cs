@@ -11,20 +11,11 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;   
     }
     public void PlayGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-    }
-
-    public void PlayAgain() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        SceneManager.LoadScene("Forest");
     }
 
     public void Menu() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
-    }
-
-    public void MenuFromDemo() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-3);
-
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame() {
