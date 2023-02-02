@@ -5055,6 +5055,7 @@ MonoBehaviour:
   isLight: 1
   lightRadius: 15
   isHeal: 0
+  healEffect: {fileID: 0}
   healRadius: 5
 --- !u!1 &3550968669729317587
 GameObject:
@@ -14709,7 +14710,7 @@ Light:
   m_GameObject: {fileID: 8773184688824279198}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 1
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.990566, g: 0.57378066, b: 0.9072977, a: 1}
   m_Intensity: 0
