@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+    EnemyController class: Attached to the Enemy to handle their movement
+    Necessary Components: Enemy (GameObject) => reference to the enemy this is attached
+                          Agent (NavMeshAgent) => reference to the navmesh component in enemy
+*/
 public class EnemyController : MonoBehaviour
 {
     [Header("Enemy/Player Initializations")]
@@ -51,29 +56,38 @@ public class EnemyController : MonoBehaviour
     int runAnimation;
     int attackAnimation1;
 
+    /*
+        Awake Function: enables navmesh, playerset and stats, animations and disables outline
+    */
     private void Awake()
     {
-        // intialize Navmesh agent, player, player stats, and animation controls
+        // intialize Navmesh agent, player, player stats
         agent = GetComponent<NavMeshAgent>();
         player = GetComponent<Transform>();
-
         playerStats = GetComponent<PlayerStats>();
 
+        // animation components enabled
         animationController = GetComponent<AnimationController>();
         animationController.AnimationPlayerInstance();
-
         walkAnimation = Animator.StringToHash("Walk");
         runAnimation = Animator.StringToHash("Run");
         attackAnimation1 = Animator.StringToHash("Attack");
 
+        // outline disab;ed
         this.GetComponent<Outline>().enabled = false;
     }
 
+    /*
+        Update Function: - For every frame, a logical sphere checks the presence of a player game
+                           object and modifies state
+                         - If player is in outermost range, enemy will engage and chase
+                         - If Player is in inner most ranger, enemy will attack
+                         - The attack radius can be increased (supports ranged enemies)
+    */
     private void Update()
     {
-        // create an overlap sphere to create dynamic player targets
-        // if a character enters the sphere, the enemy will set that character as the target
-        // break after condition met to avoid enemy from switching targets prematurely
+
+        // operate loop to check for players via layer
         potentialPlayers = Physics.OverlapSphere(transform.position,20f);
         foreach(var collider in potentialPlayers){
             int playerMask = LayerMask.NameToLayer("whatIsPlayer");
@@ -93,10 +107,23 @@ public class EnemyController : MonoBehaviour
         if (playerInAttackRange && playerInSightRange && player != null) AttackPlayer();
     }
 
+    /*
+        Input: n/A
 
+        Output: n/A
+
+        Functionality: - Method to handle enemy passive state
+                       - Calls SearchWalkPoint() to create random destination vector
+                       - if walkpoint reached, walkPointSet = false and new walkPoint is made
+                       - handles walk animations
+        
+        Called In: Update()
+
+        Notable Functions Docs:
+        - SetDestination: https://docs.unity3d.com/ScriptReference/AI.NavMeshAgent.SetDestination.html
+    */
     private void Patroling()
     {
-
         animationController.animator.CrossFade(walkAnimation, 0f);   
  
         if (!walkPointSet) SearchWalkPoint();
@@ -110,6 +137,17 @@ public class EnemyController : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
+    /*
+        Input: n/A
+
+        Output: n/A
+
+        Functionality: - Generates random Vector3 based on x and z coordinates
+                       - Used to create a walkPoint
+        
+        Called In: Patroling()
+    */
     private void SearchWalkPoint()
     {
         // calculate random point in range
@@ -122,6 +160,19 @@ public class EnemyController : MonoBehaviour
             walkPointSet = true;
     }
 
+    /*
+        Input: n/A
+
+        Output: n/A
+
+        Functionality: - Method to handle enemy aggro state
+                       - Sets destination to player; enemy now follows player
+        
+        Called In: Update()
+
+        Notable Functions Docs:
+        - SetDestination: https://docs.unity3d.com/ScriptReference/AI.NavMeshAgent.SetDestination.html
+    */
     private void ChasePlayer()
     {
         // enemy follows player here
@@ -130,8 +181,21 @@ public class EnemyController : MonoBehaviour
           
     }
 
-    // attack code can be a different class, that way I can have unique attacks for enemies
-    // leave for now cuz whatever
+    /*
+        Input: n/A
+
+        Output: n/A
+
+        Functionality: - Method to handle enemy attack state
+                       - While the player is not dead, enemy will swing and deal damage to the respective
+                         character, attacks one at a time
+                       - Calls reset attack with a delay to avoid spamming
+        
+        Called In: Update()
+
+        Notable Functions Docs:
+        - SetDestination: https://docs.unity3d.com/ScriptReference/AI.NavMeshAgent.SetDestination.html
+    */
     private void AttackPlayer()
     {
         // make sure enemy doesn't move
@@ -152,11 +216,15 @@ public class EnemyController : MonoBehaviour
 
     }
 
+
+    // helper function to reset the enemy attack so enemy can attack again
     private void ResetAttack()
     {
         alreadyAttacked = false;
     }
 
+
+    // debug function to draw out aggro and attack spheres
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

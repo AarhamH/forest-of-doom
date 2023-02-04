@@ -27369,6 +27369,10 @@ PrefabInstance:
       propertyPath: cinemachineShake
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3344077032053838060, guid: eaee0e48f22708249845cc100e8fef0b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1023707512}
     - target: {fileID: 3344077032053838065, guid: eaee0e48f22708249845cc100e8fef0b, type: 3}
       propertyPath: pause.m_Id
       value: 978af9a2-5a2c-4659-a131-08572a75c6b7
@@ -31190,6 +31194,11 @@ MonoBehaviour:
   interactionText: {fileID: 489094800}
   interactionProgress: {fileID: 981663588}
   interactionHoldGO: {fileID: 981663586}
+--- !u!95 &1023707512 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3344077032053838068, guid: eaee0e48f22708249845cc100e8fef0b, type: 3}
+  m_PrefabInstance: {fileID: 893071628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028402342
 GameObject:
   m_ObjectHideFlags: 0
